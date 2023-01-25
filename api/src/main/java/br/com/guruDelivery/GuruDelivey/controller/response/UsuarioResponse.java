@@ -3,6 +3,8 @@ package br.com.guruDelivery.GuruDelivey.controller.response;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
+import java.time.LocalDate;
+
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 
 @Getter
@@ -11,18 +13,13 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(NON_NULL)
-public class EmpresaResponse {
+public class UsuarioResponse {
 
     private Long id;
     private String nome;
-    private String cnpj;
+    private String cpf;
     private String email;
+    private LocalDate dataNascimento;
     private String fotoPerfil;
-    private String telefone;
-    private String cep;
-    private String cidade;
-    private String bairro;
-    private String rua;
-    private Integer numero;
-    private String complemento;
+
 }

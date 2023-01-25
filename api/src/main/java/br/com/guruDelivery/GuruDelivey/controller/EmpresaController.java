@@ -18,6 +18,6 @@ public class EmpresaController {
 
     @GetMapping
     public List<EmpresaResponse> listar() {
-        return listarEmpresasService.todos();
+        return listarEmpresasService.listar();
     }
 }
