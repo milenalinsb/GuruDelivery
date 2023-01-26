@@ -10,6 +10,8 @@ server:
   error:
     include-message: always
 logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5lvel %logger{36} - %msg%n"
   level:
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE

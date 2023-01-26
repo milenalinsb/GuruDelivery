@@ -1,10 +1,11 @@
-package br.com.guruDelivery.GuruDelivey.controller.request;
+package br.com.guruDelivery.GuruDelivey.security.controller.request;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
@@ -18,7 +19,7 @@ public class UsuarioRequest {
     private String cpf;
 
     @Email
-    @NotBlank
+    @NotNull
     private String email;
 
     @NotBlank
@@ -30,5 +31,6 @@ public class UsuarioRequest {
     @NotBlank
     private String fotoPerfil;
 
+    @NotBlank
+    private boolean ativo;
 }
-

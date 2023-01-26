@@ -1,5 +1,6 @@
 package br.com.guruDelivery.GuruDelivey.domain;
 
+import br.com.guruDelivery.GuruDelivey.security.domain.Usuario;
 import lombok.*;
 
 import javax.persistence.*;
