@@ -12,6 +12,21 @@
 				{
 					"name": "listar empresas",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "malu@gmail.com",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -23,6 +38,42 @@
 							"port": "8080",
 							"path": [
 								"empresas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar produtos",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "malu@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/empresas/1/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empresas",
+								"1",
+								"produtos"
 							]
 						}
 					},
@@ -52,7 +103,7 @@
 							"basic": [
 								{
 									"key": "username",
-									"value": "rtsaojose@gmail.com",
+									"value": "malu@gmail.com",
 									"type": "string"
 								},
 								{
@@ -65,10 +116,12 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/login",
+							"raw": "http://localhost:8080/login",
+							"protocol": "http",
 							"host": [
-								"{{url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"login"
 							]
@@ -102,10 +155,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/logout",
+							"raw": "http://localhost:8080/logout",
+							"protocol": "http",
 							"host": [
-								"{{url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"logout"
 							]
@@ -134,7 +189,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \n    \"nome\": \"Rotaract Club Tenente Ananias\",\n    \"email\": \"rtenente@gmail.com\",\n    \"apelido\": \"Club Tenente\",\n    \"dataFundacao\":\"2007-04-27\",\n    \"pais\": \"Brasil\",\n    \"estado\": \"Paraiba\",\n    \"cidade\": \"Tenente Ananias\",\n    \"distrito\": \"Distrito 4500\",\n    \"senha\": 123456,\n    \"imagemPerfil\": \"https://yt3.ggpht.com/ytAKedOLT0nYLLgH_Vkeu4NLQFrWsTQtVmuoyPbwsvAPk4=s900-c-k-c0x00ffffff-no-rj\"\n}",
+							"raw": "{\n    \"nome\": \"Joana Cristina\",\n    \"cpf\": \"764799009\",\n    \"email\": \"joanac@gmail.com\",\n    \"senha\": 123456,\n    \"dataNascimento\":\"1997-04-27\",\n    \"fotoPerfil\": \"https://img.freepik.com/fotos-gratis/mulher-jovem-e-elegante-magnifica-com-grandes-olhos-castanhos-e-um-sorriso-incrivel_291049-2575.jpg?w=2000\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -142,10 +197,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/usuarios",
+							"raw": "http://localhost:8080/usuarios",
+							"protocol": "http",
 							"host": [
-								"{{url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"usuarios"
 							]
