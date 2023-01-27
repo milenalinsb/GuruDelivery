@@ -87,21 +87,49 @@ CREATE TABLE IF NOT EXISTS produto_pedidos(
 );
 
 insert into usuario (nome, cpf, email, senha, data_nascimento, foto_perfil, ativo)
-values ('Maria Luiza','12332112332', 'malu@gmail.com', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', '2002-10-14', 'https://www.macetesdemae.com/wp-content/uploads/2022/06/mulher-695x600.png', true);
+values ('Maria Luiza','12332112332', 'malu@gmail.com', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', '2002-10-14', 'https://www.macetesdemae.com/wp-content/uploads/2022/06/mulher-695x600.png', true)
+,('Carol','12567890', 'carol@gmail.com', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', '2002-09-11', 'https://i.pinimg.com/736x/e0/7b/da/e07bdaa8eec24c318841ddbe10dd33bd.jpg', true)
+,('Marcos','345244235', 'marcos@gmail.com', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', '2000-10-05', 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?cs=srgb&dl=pexels-italo-melo-2379004.jpg&fm=jpg', true)
+,('Biatriz','09237634', 'bia@gmail.com', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', '1999-05-05', 'https://www.uecoop.org/wp-content/uploads/doriana-palermo-600x600.jpg', true)
+,('Pedro','43655234', 'pedro@gmail.com', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', '1997-08-11', 'https://i.pinimg.com/originals/dd/e6/4f/dde64fd6ea00d7cf0678e72c91d3a96f.jpg', true);
 
 insert into empresa (nome, cnpj, email, senha, foto_perfil, telefone, cep, cidade, bairro, rua, numero, complemento)
-values ('Pizzaria','123332123436','pizzaria@gmail.com', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', 'https://diariodorio.com/wp-content/uploads/2020/07/daleopizzaria_20200710_144435_0.jpg', '83997688765', '58900000', 'Cajazeiras', 'Centro', 'Francisco de Albuquerque', 76, 'Ao lado da Praça João Pessoa');
+values ('Pizzaria','123332123436','pizzaria@gmail.com', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', 'https://diariodorio.com/wp-content/uploads/2020/07/daleopizzaria_20200710_144435_0.jpg', '83997688765', '58900000', 'Cajazeiras', 'Centro', 'Francisco de Albuquerque', 76, 'Ao lado da Praça João Pessoa')
+,('Padaria','123336663436','padaria@gmail.com', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', 'https://venemprende.shop/wp-content/uploads/2021/04/1-scaled.jpg', '83991234509', '58900000', 'Cajazeiras', 'Jardim Oasis', 'Protázio de Sousa Lima', 244, 'Próximo ao IFPB')
+,('Pastelaria','111336663436','pastelaria@gmail.com', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', 'https://i.pinimg.com/736x/20/70/ba/2070ba0d529e84c203baab246ad3030b.jpg', '83991234000', '58900000', 'Cajazeiras', 'Centro', 'Rua feliz', 11, 'Próximo a igreja matriz')
+,('Farmácia','543236663411','farmacia@gmail.com', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', 'https://i.pinimg.com/originals/e7/92/7e/e7927ea0f21bd2210c2506d5b569f131.jpg', '83999234300', '58900000', 'Cajazeiras', 'Jardim Soledade', 'Rua São Pedro', 40, 'Próximo ao parque de eventos')
+,('Restaurante','343239663412','restaurante@gmail.com', '$2a$10$VrIbJURwINOR5HOrWFFTNOwSILsioRJSuOGAg8Luvr9qZDSOl5JXG', 'https://i.pinimg.com/736x/ab/fd/b5/abfdb5401c83ab54941bc454a04652e6.jpg', '83996234398', '58900000', 'Cajazeiras', 'Av. Júlio Marquês', 'Lot.Parque Rosina Parente', 1114, 'Proximo ao Mansão');
 
 insert into endereco (cep, cidade, bairro, rua, numero, complemento, usuario_id)
-values ('58900-000','Cajazeiras', 'Estrada do Amor', 'João Oliveira Júnior', 434, 'Perto da RC', 1);
+values ('58900-000','Cajazeiras', 'Estrada do Amor', 'João Oliveira Júnior', 434, 'Perto da RC', 1)
+,('58900-000','Cajazeiras', 'Jardim Oasis', 'Protázio de Sousa Lima', 244, 'Perto do IFPB', 2)
+,('58900-000','Cajazeiras', 'Jardim Soledade', 'Sebastião Soares de Matos', 390, 'Próximo a MV Casa de Construção', 3)
+,('58900-000','Cajazeiras', 'Centro', 'Antonio Mariz', 123, 'Próximo a igreja', 4)
+,('58900-000','Cajazeiras', 'Populares', 'José Américo de Almeida', 320, 'Perto da UFCG ', 5)
 
-insert into produto (nome, foto, preco,descricao, empresa_id)
-values ('Pizza G','https://soubh.uai.com.br/uploads/post/image/9034/main_150705_pizza_2.jpg', 55.60, 'pizza de calabresa', 1);
+insert into produto (nome, foto, preco, descricao, empresa_id)
+values ('Pizza G','https://soubh.uai.com.br/uploads/post/image/9034/main_150705_pizza_2.jpg', 55.60, 'pizza de calabresa', 1)
+,('Pão doce','https://2.bp.blogspot.com/-XIkZG4U7E5o/Tro7tHTWVDI/AAAAAAAADY8/FPoe9TbTuHM/s640/One+No+Knead+Cinnamon+Rolls+104.jpg', 5.0, 'Seis pães', 2)
+,('Pastel','https://imagensemoldes.com.br/wp-content/uploads/2020/07/Figura-Pastel-Lanche-PNG.png', 15.30, 'Um pastel de frango e outro de calabresa', 3)
+,('Remédio para dor de cabeça','https://quesaude.com.br/wp-content/uploads/2019/03/Doralgina-768x395.jpg', 10, 'Uma caixa do remédio', 4)
+,('Marmita com almoço','https://diaonline.ig.com.br/wp-content/uploads/2020/05/marmita-anapolis_capa-1024x532.jpg', 16, 'Uma marmita com almoço', 5);
 
 insert into pedido (empresa_id, usuario_id)
-values (1,1);
+values (1,1)
+,(2,2)
+,(3,3)
+,(4,4)
+,(5,5);
 
-insert into produto_pedidos(pedido_id, produto_id) values (1,1);
+insert into produto_pedidos(pedido_id, produto_id) 
+values (1,1)
+,(2,2)
+,(3,3)
+,(4,4)
+,(5,5);
 
-insert into permissao (funcao, usuario_id) values ('ADMIN', 1);
-insert into permissao (funcao, usuario_id) values ('USUARIO', 1);
+insert into permissao (funcao, usuario_id) 
+values('ADMIN', 1);
+
+insert into permissao (funcao, usuario_id) 
+values ('USUARIO', 1);
