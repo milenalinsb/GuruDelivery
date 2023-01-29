@@ -1,3 +1,4 @@
+import { Field, Form, Formik } from 'formik'
 import React from 'react'
 import InputText from '../../components/InputText'
 import LargeButton from '../../components/LargeButton'
@@ -5,6 +6,11 @@ import Separator from '../../components/Separator'
 import style from './LoginPage.module.css'
 
 export default function Login() {
+
+  function onSubmit(values){
+    alert(JSON.stringify(values))
+  }
+
   return (
     <>
       <div className='container' >
@@ -21,12 +27,23 @@ export default function Login() {
           </div>
 
           <div className={style.form}>
-            <form>
-              <InputText type="email" placeholder="Digite o seu email"/>
-              <InputText type="password" placeholder='Digite sua senha'/>
-              <LargeButton text="Enviar" bg/>
-              <Separator />
-            </form>
+            <Formik 
+              initialValues={{email: "", password: ""}}
+              onSubmit={onSubmit}
+            >
+              {({
+                values,
+                errors,
+                handleChange
+              }) => (
+                <Form>
+                  <Field as={InputText} name="email" type="email" placeholder="Digite o seu email"/>
+                  <Field as={InputText} name="password" type="password" placeholder='Digite sua senha'/>
+                  <LargeButton text="Enviar" bg/>
+                  <Separator />
+                </Form>
+            )}
+            </Formik>
           </div>
 
           <div className={style.footer}>
