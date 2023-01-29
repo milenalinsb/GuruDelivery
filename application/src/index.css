@@ -13,9 +13,9 @@ body {
   --primary: #FB9400;
   --primary-light: #fa9e1d;
   --background: #FFF;
-  --surfice: #F9F9FB;
+  --surface: #F9F9FB;
   --on-primary: #FFF;
-  --on-surfice: #000;
+  --on-surface: #000;
 
   --font-regular: 16px;
   --font-bold: 600;

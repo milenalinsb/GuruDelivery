@@ -1,0 +1,14 @@
+.signinContainer{
+    display: flex;
+    flex: 1;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    padding: 0 30px;
+}
+
+.footer a{
+    color: var(--primary);
+}

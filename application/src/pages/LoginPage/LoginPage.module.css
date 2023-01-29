@@ -32,22 +32,21 @@
     font-weight: 400;
 }
 
-.loginForm {
+.form {
     display: flex;
     width: 100%;
     max-width: 400px;
 }
 
-.loginForm form{
+.form form{
     display: flex;
     flex:1;
     flex-direction: column;
-    margin-top: 30px;
 }
 
 
 
-.loginForm button {
+.form button {
     margin-top: 50px;
 }
 
@@ -56,7 +55,6 @@
     flex-direction: row;
     max-width: 400px;
     width: 100%;
-    margin-top: 50px;
 }
 
 .footer button{

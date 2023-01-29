@@ -1,6 +1,7 @@
 import React from 'react'
 import InputText from '../../components/InputText'
 import LargeButton from '../../components/LargeButton'
+import Separator from '../../components/Separator'
 import style from './LoginPage.module.css'
 
 export default function Login() {
@@ -16,15 +17,15 @@ export default function Login() {
             <div className={style.headerText}>
               Use suas credenciais para realizar o login.
             </div>
-          <hr style={{width: '100%', marginTop: '50px'}}/>
+            <Separator />
           </div>
 
-          <div className={style.loginForm}>
+          <div className={style.form}>
             <form>
               <InputText type="email" placeholder="Digite o seu email"/>
               <InputText type="password" placeholder='Digite sua senha'/>
               <LargeButton text="Enviar" bg/>
-              <hr style={{width: '100%', marginTop: '50px'}}/>
+              <Separator />
             </form>
           </div>
 

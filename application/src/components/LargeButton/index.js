@@ -4,7 +4,7 @@ import styles from './LargeButton.module.css'
 export default function LargeButton({text, action, bg, ...props}) {
   return (
     <button className={styles.largeButton} type='submit' style={!bg?{
-        backgroundColor: 'var(--surfice)',
+        backgroundColor: 'var(--surface)',
         color: 'var(--primary)',
         border: '1px solid'
         }:{}}
