@@ -1,0 +1,15 @@
+.large-button {
+    background-color: var(--primary);
+    height: 61px;
+    font-family: 'Inter';
+    font-weight: var(--font-bold);
+    color: var(--on-primary);
+    font-size: var(--font-large);
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+}
+
+.large-button:hover {
+    background-color: var(--primary-light);
+}
