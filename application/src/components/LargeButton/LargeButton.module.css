@@ -1,4 +1,4 @@
-.large-button {
+.largeButton {
     background-color: var(--primary);
     height: 61px;
     font-family: 'Inter';
@@ -10,6 +10,6 @@
     cursor: pointer;
 }
 
-.large-button:hover {
+.largeButton:hover {
     background-color: var(--primary-light);
 }

@@ -1,5 +1,5 @@
 
-.login-container{
+.loginContainer{
     display: flex;
     flex: 1;
     height: 100vh;
@@ -10,11 +10,11 @@
     padding: 0 30px;
 }
 
-.login-header{
+.header{
     max-width: 400px;
 }
 
-.login-header-logo{
+.headerLogo{
     font-size: xx-large;
     text-align: center;
     margin-bottom: 50px;
@@ -22,7 +22,7 @@
     font-weight: 600;
 }
 
-.login-header-text{
+.headerText{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -32,33 +32,26 @@
     font-weight: 400;
 }
 
-.login-form {
+.loginForm {
     display: flex;
     width: 100%;
     max-width: 400px;
 }
 
-.login-form form{
+.loginForm form{
     display: flex;
     flex:1;
     flex-direction: column;
+    margin-top: 30px;
 }
 
-.login-form input {
-    min-width:0;
-    font-size: var(--font-regular);
-    height: 40px;
-    margin-top: 20px;
-    padding: 0 10px;
-    border: 0;
-    background-color: var(--surfice);
-}
 
-.login-form button {
+
+.loginForm button {
     margin-top: 50px;
 }
 
-.login-footer {
+.footer {
     display: flex;
     flex-direction: row;
     max-width: 400px;
@@ -66,6 +59,6 @@
     margin-top: 50px;
 }
 
-.login-footer button{
+.footer button{
     width: 100%;
 }

@@ -1,0 +1,9 @@
+.input {
+    min-width:0;
+    font-size: var(--font-regular);
+    height: 40px;
+    margin: 10px 0;
+    padding: 0 10px;
+    border: 0;
+    background-color: var(--surfice);
+}

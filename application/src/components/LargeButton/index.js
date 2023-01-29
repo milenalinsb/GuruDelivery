@@ -1,13 +1,15 @@
 import React from 'react'
-import './style.css'
+import styles from './LargeButton.module.css'
 
-export default function LargeButton({text, action, bg}) {
+export default function LargeButton({text, action, bg, ...props}) {
   return (
-    <button className='large-button' type='submit' style={!bg?{
+    <button className={styles.largeButton} type='submit' style={!bg?{
         backgroundColor: 'var(--surfice)',
         color: 'var(--primary)',
         border: '1px solid'
-        }:{}}>
+        }:{}}
+        {...props}
+    >
         {text}
     </button>
   )
