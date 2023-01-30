@@ -159,6 +159,62 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "remover produto do carrinho",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/usuarios/1/1/carrinho/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"usuarios",
+										"1",
+										"1",
+										"carrinho",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "alterar quantidade de produtos no carrinho",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"quantidade\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/usuarios/1/1/carrinho/1/alterar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"usuarios",
+										"1",
+										"1",
+										"carrinho",
+										"1",
+										"alterar"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},

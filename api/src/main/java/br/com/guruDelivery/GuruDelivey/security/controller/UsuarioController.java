@@ -1,5 +1,6 @@
 package br.com.guruDelivery.GuruDelivey.security.controller;
 
+import br.com.guruDelivery.GuruDelivey.controller.request.AlterarProdutoRequest;
 import br.com.guruDelivery.GuruDelivey.controller.request.CarrinhoRequest;
 import br.com.guruDelivery.GuruDelivey.controller.request.EnderecoRequest;
 import br.com.guruDelivery.GuruDelivey.controller.response.CarrinhoResponse;
@@ -7,17 +8,15 @@ import br.com.guruDelivery.GuruDelivey.controller.response.EnderecoResponse;
 import br.com.guruDelivery.GuruDelivey.security.controller.request.UsuarioRequest;
 import br.com.guruDelivery.GuruDelivey.controller.response.ProdutoPedidoResponse;
 import br.com.guruDelivery.GuruDelivey.security.controller.response.UsuarioResponse;
-import br.com.guruDelivery.GuruDelivey.service.AdicionarProdutoAoCarrinhoService;
+import br.com.guruDelivery.GuruDelivey.service.*;
 import br.com.guruDelivery.GuruDelivey.security.service.IncluirUsuarioService;
-import br.com.guruDelivery.GuruDelivey.service.ListarEnderecosService;
-import br.com.guruDelivery.GuruDelivey.service.CriarEnderecoService;
-import br.com.guruDelivery.GuruDelivey.service.ListarCarrinhoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -37,6 +36,12 @@ public class UsuarioController {
 
     @Autowired
     private ListarCarrinhoService listarCarrinhoService;
+
+    @Autowired
+    private RemoverProdutoCarrinhoService removerProdutoCarrinhoService;
+
+    @Autowired
+    private AlterarProdutoCarrinhoService alterarProdutoCarrinhoService;
 
     @PostMapping
     public UsuarioResponse incluir(@RequestBody UsuarioRequest request) {
@@ -65,4 +70,15 @@ public class UsuarioController {
         return listarCarrinhoService.listar(idUsuario, idEmpresa);
     }
 
+    @DeleteMapping("/{idUsuario}/{idEmpresa}/carrinho/{idProduto}")
+    @ResponseStatus(NO_CONTENT)
+    public void deletar(@PathVariable Long idUsuario, @PathVariable Long idEmpresa, @PathVariable Long idProduto) {
+        removerProdutoCarrinhoService.deletar(idUsuario, idEmpresa, idProduto);
+    }
+
+    @PatchMapping("/{idUsuario}/{idEmpresa}/carrinho/{idProduto}/alterar")
+    @ResponseStatus(OK)
+    public void alterar(@PathVariable Long idUsuario, @PathVariable Long idEmpresa, @PathVariable Long idProduto, @RequestBody AlterarProdutoRequest request) {
+        alterarProdutoCarrinhoService.alterar(idUsuario, idEmpresa, idProduto, request);
+    }
 }

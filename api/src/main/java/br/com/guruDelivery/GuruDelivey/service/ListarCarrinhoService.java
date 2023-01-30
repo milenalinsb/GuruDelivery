@@ -44,7 +44,7 @@ public class ListarCarrinhoService {
             produtoPedido.setId(produto.getProduto().getId());
             produtoPedido.setNome(produto.getProduto().getNome());
             produtoPedido.setFoto(produto.getProduto().getFoto());
-            produtoPedido.setPreco(produtoPedido.getPreco());
+            produtoPedido.setPreco(produto.getProduto().getPreco());
             produtoPedido.setQuantidade(produto.getQuantidade());
             produtoPedido.setTotal(produto.getProduto().getPreco() * produto.getQuantidade());
             return produtoPedido;
