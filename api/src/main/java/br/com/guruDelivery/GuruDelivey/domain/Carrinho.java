@@ -4,37 +4,35 @@ import br.com.guruDelivery.GuruDelivey.security.domain.Usuario;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Builder @NoArgsConstructor @AllArgsConstructor
+@Builder @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter
 @EqualsAndHashCode(of = "id") @ToString(of = "id")
-public class Endereco {
+public class Carrinho {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String cep;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "empresa_id")
+    private Empresa empresa;
 
-    @Column(nullable = false)
-    private String cidade;
-
-    @Column(nullable = false)
-    private String bairro;
-
-    @Column(nullable = false)
-    private String rua;
-
-    @Column(nullable = false)
-    private Integer numero;
-
-    private String complemento;
-
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "produto_id")
+    private Produto produto;
+
+    private Integer quantidade;
+
 }

@@ -1,14 +1,8 @@
 package br.com.guruDelivery.GuruDelivey.mapper;
 
 import br.com.guruDelivery.GuruDelivey.controller.request.EnderecoRequest;
-import br.com.guruDelivery.GuruDelivey.controller.response.EmpresaResponse;
 import br.com.guruDelivery.GuruDelivey.controller.response.EnderecoResponse;
-import br.com.guruDelivery.GuruDelivey.controller.response.ProdutoResponse;
-import br.com.guruDelivery.GuruDelivey.domain.Empresa;
 import br.com.guruDelivery.GuruDelivey.domain.Endereco;
-import br.com.guruDelivery.GuruDelivey.security.controller.request.UsuarioRequest;
-import br.com.guruDelivery.GuruDelivey.security.controller.response.UsuarioResponse;
-import br.com.guruDelivery.GuruDelivey.security.domain.Usuario;
 import br.com.guruDelivery.GuruDelivey.security.mapper.UsuarioMapper;
 
 public class EnderecoMapper {

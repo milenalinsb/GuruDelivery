@@ -1,4 +1,4 @@
-package br.com.guruDelivery.GuruDelivey.security.service;
+package br.com.guruDelivery.GuruDelivey.service;
 
 import br.com.guruDelivery.GuruDelivey.controller.response.EnderecoResponse;
 import br.com.guruDelivery.GuruDelivey.domain.Endereco;
