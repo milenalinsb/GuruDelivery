@@ -1,6 +1,4 @@
 import React from 'react'
-import styles from './SigninUserPage.module.css'
-import loginStyles from '../LoginPage/LoginPage.module.css'
 import Separator from '../../components/Separator'
 import InputText from '../../components/InputText'
 import LargeButton from '../../components/LargeButton'
@@ -13,19 +11,17 @@ export default function SigninUserPage() {
     }
 
   return (
-    <div className='container'>
-        <div className={styles.signinContainer}>
-
-            <div className={loginStyles.header}>
-                <div className={loginStyles.headerLogo}>
+    <div className='h-screen flex flex-col justify-center items-center bg-background 
+    font-sans'>
+            <div className='w-full bg-surface drop-shadow p-5 rounded-lg max-w-md'>
+                <div className='text-primary text-4xl text-center my-8'>
                     Guru Delivery
                 </div>
-                <div className={loginStyles.headerText}>
+                <div className='text-center text-base font-sans'>
                     Preencha os campos para criar o seu cadastro.
                 </div>
-                <Separator/>
-            </div>
-            <div className={loginStyles.form}>
+                <Separator />
+                <div className=''>
                 <Formik
                     initialValues={{nome: "", email: "", password: ""}}
                     onSubmit={onSubmit}
@@ -33,20 +29,20 @@ export default function SigninUserPage() {
                     {(
 
                     )=>(    
-                        <Form>
+                        <Form className='flex flex-col'>
                             <Field as={InputText} name="nome" type="text" placeholder="Digite seu nome"/>
                             <Field as={InputText} name="email" type="email" placeholder="Digite seu e-mail"/>
                             <Field as={InputText} name="password" type="password" placeholder="Digite sua senha"/>
+                            <div className='mt-10'/>
                             <LargeButton text="Cadastrar" bg/>
                             <Separator/>
                         </Form>
                     )}
                 </Formik>
             </div>
-            <div className={styles.footer}>
-                Já tem cadastro? <a href='#'>Fazer Login</a>
+            <div className='text-center text-sm'>
+                Já tem cadastro? <a className='text-primary' href='#'>Fazer Login</a>
             </div>
-
         </div>
     </div>
   )

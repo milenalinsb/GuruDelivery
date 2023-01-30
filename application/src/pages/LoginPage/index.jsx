@@ -3,7 +3,6 @@ import React from 'react'
 import InputText from '../../components/InputText'
 import LargeButton from '../../components/LargeButton'
 import Separator from '../../components/Separator'
-import style from './LoginPage.module.css'
 
 export default function Login() {
 
@@ -13,42 +12,40 @@ export default function Login() {
 
   return (
     <>
-      <div className='container' >
-        <div className={style.loginContainer}>
-
-          <div className={style.header}>
-            <div className={style.headerLogo}>
+      <div className='h-screen flex flex-col items-center center
+          justify-center bg-background font-sans'>
+          <div className='w-full bg-surface drop-shadow p-5 rounded-lg max-w-md'>
+            <div className='text-primary text-4xl text-center my-8'>
               Guru Delivery
             </div>
-            <div className={style.headerText}>
+            <div className='text-center text-md font-sans'>
               Use suas credenciais para realizar o login.
             </div>
             <Separator />
-          </div>
 
-          <div className={style.form}>
-            <Formik 
-              initialValues={{email: "", password: ""}}
-              onSubmit={onSubmit}
-            >
+            <div className='flex flex-col'>
+              <Formik 
+                initialValues={{email: "", password: ""}}
+                onSubmit={onSubmit}
+              >
               {({
                 values,
                 errors,
                 handleChange
               }) => (
-                <Form>
+                <Form className='flex flex-col'>
                   <Field as={InputText} name="email" type="email" placeholder="Digite o seu email"/>
                   <Field as={InputText} name="password" type="password" placeholder='Digite sua senha'/>
-                  <LargeButton text="Enviar" bg/>
+                  <div className='flex flex-col mt-10'>
+                    <LargeButton text="Enviar" bg/>
+                  </div>
                   <Separator />
                 </Form>
             )}
             </Formik>
-          </div>
-
-          <div className={style.footer}>
             <LargeButton text="Quero me Cadastrar"/>
           </div>
+
         </div>
       </div>
     </>

@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @font-face {
   font-family: "Inter";
   src: url("assets/Inter-VariableFont_slnt\,wght.ttf") format("truetype");
@@ -9,16 +12,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  --primary: #FB9400;
-  --primary-light: #fa9e1d;
-  --background: #FFF;
-  --surface: #F9F9FB;
-  --on-primary: #FFF;
-  --on-surface: #000;
-
-  --font-regular: 16px;
-  --font-bold: 600;
 }
 
 code {
