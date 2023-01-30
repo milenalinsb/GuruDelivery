@@ -18,6 +18,10 @@
 .env.test.local
 .env.production.local
 
+exemple.txt
+TestFunctions.js
+NavBarTest.js
+CompanyTest.js
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

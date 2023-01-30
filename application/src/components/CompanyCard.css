@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.link {
+  text-decoration: none;
+  color: #000000;
+  text-align: center;
+}
+
+.link:hover {
+  color: #ffff;
+}
+
+.backgound-style {
+  width: 85%;
+}
+
+.card-backgound {
+  background-color: #ffff;
+  width: 17rem;
+  height: 17rem;
+  margin: 0 5px 10px 5px;
+  border-radius: 10px;
+  border: 5px solid;
+  border-color: #fb9400;
+  transition: all 0.5s;
+}
+
+.card-backgound:hover {
+  background-color: #fb9400;
+  width: 16rem;
+  height: 16rem;
+}
+
+.img-card {
+  width: 95%;
+  height: 11rem;
+  margin: 5px 0 10px 0;
+  border-radius: 10px;
+}
