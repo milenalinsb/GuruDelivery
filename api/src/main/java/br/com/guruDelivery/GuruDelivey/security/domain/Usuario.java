@@ -44,6 +44,11 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Endereco> enderecos = new ArrayList<>();
 
+    public void adicionarEndereco(Endereco endereco) {
+        this.getEnderecos().add(endereco);
+        endereco.setUsuario(this);
+    }
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Pedido> pedidos = new ArrayList<>();
 

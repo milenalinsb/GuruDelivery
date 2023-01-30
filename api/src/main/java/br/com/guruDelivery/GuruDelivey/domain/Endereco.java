@@ -1,6 +1,7 @@
 package br.com.guruDelivery.GuruDelivey.domain;
 
 import br.com.guruDelivery.GuruDelivey.security.domain.Usuario;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
