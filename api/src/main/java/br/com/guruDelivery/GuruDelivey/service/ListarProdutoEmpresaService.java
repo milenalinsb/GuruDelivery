@@ -1,10 +1,7 @@
 package br.com.guruDelivery.GuruDelivey.service;
 
-import br.com.guruDelivery.GuruDelivey.controller.response.EmpresaResponse;
 import br.com.guruDelivery.GuruDelivey.controller.response.ProdutoResponse;
-import br.com.guruDelivery.GuruDelivey.domain.Empresa;
 import br.com.guruDelivery.GuruDelivey.domain.Produto;
-import br.com.guruDelivery.GuruDelivey.mapper.EmpresaMapper;
 import br.com.guruDelivery.GuruDelivey.mapper.ProdutoMapper;
 import br.com.guruDelivery.GuruDelivey.repository.EmpresaRepository;
 import br.com.guruDelivery.GuruDelivey.repository.ProdutoRepository;
