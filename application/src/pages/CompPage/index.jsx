@@ -12,7 +12,7 @@ export default function CompPage() {
         <div className='px-20'>
           <InputText placeholder='Pesquisa' />
         </div>
-        <main className='grid sm:grid-cols-3 md:grid-cols-4 bg-primary-light justify-center gap-2 p-2'>
+        <main className='grid sm:grid-cols-3 md:grid-cols-4 bg-background justify-center gap-2 p-2'>
           <ProductCard/>
           <ProductCard/>
           <ProductCard/>
