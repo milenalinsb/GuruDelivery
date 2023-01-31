@@ -11,8 +11,8 @@ export default function CompPage() {
     <>
       <NavBar/>
     <div className='flex flex-1 flex-col p-5 bg-background items-center justify-center' >
-      <div className='bg-surface max-w-6xl w-full rounded-lg'>
-        <header className='bg-primary w-full flex text-on-primary'>
+      <div className=' max-w-6xl w-full rounded-lg'>
+        <header className='w-full flex text-on-primary'>
           <HeaderCard/>
         </header>
         <div className='mt-2'>
