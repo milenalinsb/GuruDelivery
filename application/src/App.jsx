@@ -5,8 +5,9 @@ import SigninUserPage from './pages/SigninUserPage';
 import CompPage from './pages/CompPage'
 
 function App() {
+    
   return (
-    <CompPage/>
+    <></>
   );
 }
 

@@ -1,10 +1,13 @@
 import { Field, Form, Formik } from 'formik'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import InputText from '../../components/InputText'
 import LargeButton from '../../components/LargeButton'
 import Separator from '../../components/Separator'
 
-export default function Login() {
+export default function LoginPage() {
+
+  const navigate = useNavigate()
 
   function onSubmit(values){
     alert(JSON.stringify(values))
@@ -43,7 +46,7 @@ export default function Login() {
                 </Form>
             )}
             </Formik>
-            <LargeButton text="Quero me Cadastrar"/>
+            <LargeButton text="Quero me Cadastrar" action={()=> navigate("/signin-usr")}/>
           </div>
 
         </div>

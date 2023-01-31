@@ -18,9 +18,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
-.container {
-  flex:1;
-  height: 100vh;
-}
