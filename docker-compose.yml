@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  api:
+    build: 
+      dockerfile: API.Dockerfile
+      context: .
+      network: host
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - spring.datasource.url=jdbc:postgresql://db:5432/GuruDelivery
+      - spring.datasource.url.username=postgres
+      - spring.datasource.url.password=1234
+    ports:
+      - "8080:8080"
+  db:
+    build: 
+      dockerfile: DB.Dockerfile
+      context: .
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "1234"
+      POSTGRES_DB: 'GuruDelivery'
+    ports:
+      - "5432:5432"
+
+
+
+  
