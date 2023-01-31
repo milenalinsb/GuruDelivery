@@ -1,4 +1,5 @@
 import React from 'react'
+import HeaderCard from '../../components/HeaderCard'
 import InputText from '../../components/InputText'
 import NavBar from '../../components/NavBar'
 import ProductCard from '../../components/ProductCard'
@@ -11,12 +12,8 @@ export default function CompPage() {
       <NavBar/>
     <div className='flex flex-1 flex-col p-5 bg-background items-center justify-center' >
       <div className='bg-surface max-w-6xl w-full rounded-lg'>
-        <header className='bg-primary h-48 w-full flex text-on-primary'>
-          <img src='#'/>
-          <div className='p-2'>
-            <div className='text-2xl'>Nome</div>
-            <div>info</div>
-          </div>
+        <header className='bg-primary w-full flex text-on-primary'>
+          <HeaderCard/>
         </header>
         <div className='mt-2'>
           <SearchBar placeholder="Procure um produto" buttonText="Procurar"/>
