@@ -5,9 +5,6 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity

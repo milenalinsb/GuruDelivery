@@ -16,8 +16,8 @@ public class PedidoController {
     final PedidoService pedidoService;
 
     @PostMapping
-    public ResponseEntity<PedidoResponse> criarPedido(@PathVariable Long empresaId, @RequestBody Long userId){
-        var pedidoResponse = pedidoService.realizarPedido(userId, empresaId);
+    public ResponseEntity<PedidoResponse> criarPedido(@PathVariable Long empresaId, @RequestBody PedidoRequest request){
+        var pedidoResponse = pedidoService.realizarPedido(request.getEnderecoId(), empresaId);
         return ResponseEntity.created(ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}").buildAndExpand(pedidoResponse.getId()).toUri())
                 .body(pedidoResponse);

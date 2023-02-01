@@ -5,13 +5,12 @@ import br.com.guruDelivery.GuruDelivey.controller.request.CarrinhoRequest;
 import br.com.guruDelivery.GuruDelivey.controller.request.EnderecoRequest;
 import br.com.guruDelivery.GuruDelivey.controller.response.CarrinhoResponse;
 import br.com.guruDelivery.GuruDelivey.controller.response.EnderecoResponse;
-import br.com.guruDelivery.GuruDelivey.security.controller.request.UsuarioRequest;
 import br.com.guruDelivery.GuruDelivey.controller.response.ProdutoPedidoResponse;
+import br.com.guruDelivery.GuruDelivey.security.controller.request.UsuarioRequest;
 import br.com.guruDelivery.GuruDelivey.security.controller.response.UsuarioResponse;
-import br.com.guruDelivery.GuruDelivey.service.*;
 import br.com.guruDelivery.GuruDelivey.security.service.IncluirUsuarioService;
+import br.com.guruDelivery.GuruDelivey.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -65,11 +64,11 @@ public class UsuarioController {
         return adicionarProdutoAoCarrinhoService.adicionar(id, request);
     }
 
-    /*
+
     @GetMapping("/{idUsuario}/{idEmpresa}/carrinho")
     public List<ProdutoPedidoResponse> listarProdutos(@PathVariable Long idUsuario, @PathVariable Long idEmpresa) {
         return listarCarrinhoService.listar(idUsuario, idEmpresa);
-    }*/
+    }
 
     @DeleteMapping("/{idUsuario}/{idEmpresa}/carrinho/{idProduto}")
     @ResponseStatus(NO_CONTENT)

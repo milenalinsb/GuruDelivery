@@ -49,7 +49,7 @@ public class Usuario {
         endereco.setUsuario(this);
     }
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "endereco", cascade = CascadeType.ALL)
     private List<Pedido> pedidos = new ArrayList<>();
 
     public void adicionarPedido(Pedido pedido) {

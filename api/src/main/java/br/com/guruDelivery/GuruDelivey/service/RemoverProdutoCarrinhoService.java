@@ -1,6 +1,5 @@
 package br.com.guruDelivery.GuruDelivey.service;
 
-import br.com.guruDelivery.GuruDelivey.controller.response.ProdutoPedidoResponse;
 import br.com.guruDelivery.GuruDelivey.domain.Carrinho;
 import br.com.guruDelivery.GuruDelivey.domain.Empresa;
 import br.com.guruDelivery.GuruDelivey.domain.Produto;
@@ -11,8 +10,6 @@ import br.com.guruDelivery.GuruDelivey.security.domain.Usuario;
 import br.com.guruDelivery.GuruDelivey.security.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class RemoverProdutoCarrinhoService {

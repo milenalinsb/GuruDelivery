@@ -1,11 +1,9 @@
 package br.com.guruDelivery.GuruDelivey.domain;
 
-import br.com.guruDelivery.GuruDelivey.security.domain.Usuario;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +29,8 @@ public class Pedido {
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
 
     @Enumerated(STRING)
     private Status status;

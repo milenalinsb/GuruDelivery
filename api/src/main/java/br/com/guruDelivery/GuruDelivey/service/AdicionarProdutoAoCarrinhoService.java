@@ -25,14 +25,21 @@ public class AdicionarProdutoAoCarrinhoService {
     private CarrinhoRepository carrinhoRepository;
 
     public CarrinhoResponse adicionar(Long idUsuario, CarrinhoRequest request) {
-        Carrinho carrinho = CarrinhoMapper.toEntity(request);
 
         Produto produto = produtoRepository.findById(request.getProduto()).get();
-        carrinho.setProduto(produto);
-        carrinho.setEmpresa(produto.getEmpresa());
 
         Usuario usuario = usuarioRepository.findById(idUsuario).get();
-        carrinho.setUsuario(usuario);
+
+        Carrinho carrinho = CarrinhoMapper.toEntity(request);
+
+        if(carrinhoRepository.existsByProdutoAndUsuario(produto, usuario)){
+            carrinho = carrinhoRepository.findByProdutoAndUsuario(produto, usuario);
+            carrinho.setQuantidade(carrinho.getQuantidade() + request.getQuantidade());
+        } else{
+            carrinho.setProduto(produto);
+            carrinho.setEmpresa(produto.getEmpresa());
+            carrinho.setUsuario(usuario);
+        }
 
         carrinhoRepository.save(carrinho);
 
