@@ -31,6 +31,10 @@ public class ListarCarrinhoService {
     @Autowired
     private CarrinhoRepository carrinhoRepository;
 
+
+    //FIXME Creio que aqui é só retornar o tipo do carrinho mesmo, não entendi a conversão pra o produtopedido
+    /*
+
     public List<ProdutoPedidoResponse> listar(Long idUsuario, Long idEmpresa) {
 
         Usuario usuario = usuarioRepository.findById(idUsuario).get();
@@ -54,4 +58,5 @@ public class ListarCarrinhoService {
 
         return retorno;
     }
+     */
 }

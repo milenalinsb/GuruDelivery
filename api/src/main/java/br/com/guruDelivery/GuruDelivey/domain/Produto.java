@@ -37,6 +37,4 @@ public class Produto {
     @JoinColumn(name = "empresa_id")
     private Empresa empresa;
 
-    @ManyToMany(mappedBy = "produtos")
-    private List<Pedido> pedidos = new ArrayList<>();
 }

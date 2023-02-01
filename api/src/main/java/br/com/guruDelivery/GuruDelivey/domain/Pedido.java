@@ -16,7 +16,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Builder @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter
-@EqualsAndHashCode(of = "id") @ToString(of = "id")
 public class Pedido {
 
     @Id
@@ -38,14 +37,11 @@ public class Pedido {
     @Enumerated(STRING)
     private Status status;
 
-    @ManyToMany
-    @JoinTable(name = "produto_pedidos",
-            joinColumns = @JoinColumn(name = "pedido_id"),
-            inverseJoinColumns = @JoinColumn(name = "produto_id"))
-    private List<Produto> produtos = new ArrayList<>();
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private List<ProdutoPedido> produtosPedido = new ArrayList<>();
 
-    public void adicionarProduto(Produto produto) {
-        this.getProdutos().add(produto);
-        produto.getPedidos().add(this);
+    public void adicionarProdutoPedido(ProdutoPedido produtoPedido) {
+        this.produtosPedido.add(produtoPedido);
+        produtoPedido.setPedido(this);
     }
 }

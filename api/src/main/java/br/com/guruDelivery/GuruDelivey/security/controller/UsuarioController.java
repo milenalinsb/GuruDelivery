@@ -65,10 +65,11 @@ public class UsuarioController {
         return adicionarProdutoAoCarrinhoService.adicionar(id, request);
     }
 
+    /*
     @GetMapping("/{idUsuario}/{idEmpresa}/carrinho")
     public List<ProdutoPedidoResponse> listarProdutos(@PathVariable Long idUsuario, @PathVariable Long idEmpresa) {
         return listarCarrinhoService.listar(idUsuario, idEmpresa);
-    }
+    }*/
 
     @DeleteMapping("/{idUsuario}/{idEmpresa}/carrinho/{idProduto}")
     @ResponseStatus(NO_CONTENT)

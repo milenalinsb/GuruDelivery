@@ -18,14 +18,4 @@ public class ProdutoMapper {
                 .build();
     }
 
-    public static ProdutoPedidoResponse toResponseProdutoPedido(ProdutoPedido produto) {
-        return ProdutoPedidoResponse.builder()
-                .id(produto.getId())
-                .nome(produto.getNome())
-                .foto(produto.getFoto())
-                .preco(produto.getPreco())
-                .quantidade(produto.getQuantidade())
-                .total(produto.getTotal())
-                .build();
-    }
 }
