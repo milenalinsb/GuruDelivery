@@ -1,12 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Separator from '../../components/Separator'
 import InputText from '../../components/InputText'
 import LargeButton from '../../components/LargeButton'
 import { Field, Form, Formik } from 'formik'
 import { postUser } from '../../api/user'
-import { Link } from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+import ErrorMessage from "../../components/ErrorMessage";
 
 export default function SigninUserPage() {
+
+    const navigate = useNavigate()
+    const [errorMessage, setErrorMessage] = useState("");
 
     const initial ={
         nome: "", 
@@ -28,6 +32,7 @@ export default function SigninUserPage() {
             const response = await postUser(user)
             console.log('user added: '+JSON.stringify(user))
             resetForm()
+            navigate("/login")
         }catch(error){
             console.error(error)
         }
@@ -45,26 +50,27 @@ export default function SigninUserPage() {
                 </div>
                 <Separator />
                 <div className=''>
-                <Formik
-                    initialValues={initial}
-                    onSubmit={onSubmit}
-                >
-                    {(
+                    {errorMessage!==""?(<ErrorMessage message={errorMessage}/>):""}
+                    <Formik
+                        initialValues={initial}
+                        onSubmit={onSubmit}
+                    >
+                        {(
 
-                    )=>(    
-                        <Form className='flex flex-col'>
-                            <Field as={InputText} name="nome" type="text" placeholder="Digite seu nome"/>
-                            <Field as={InputText} name="cpf" type="text" placeholder="Digite seu CPF"/>
-                            <Field as={InputText} name="data" type="date" placeholder="Digite sua data de nascimento"/>
-                            <Field as={InputText} name="email" type="email" placeholder="Digite seu e-mail"/>
-                            <Field as={InputText} name="password" type="password" placeholder="Digite sua senha"/>
-                            <div className='mt-10'/>
-                            <LargeButton text="Cadastrar" bg/>
-                            <Separator/>
-                        </Form>
-                    )}
-                </Formik>
-            </div>
+                        )=>(
+                            <Form className='flex flex-col'>
+                                <Field as={InputText} name="nome" type="text" placeholder="Digite seu nome"/>
+                                <Field as={InputText} name="cpf" type="text" placeholder="Digite seu CPF"/>
+                                <Field as={InputText} name="data" type="date" placeholder="Digite sua data de nascimento"/>
+                                <Field as={InputText} name="email" type="email" placeholder="Digite seu e-mail"/>
+                                <Field as={InputText} name="password" type="password" placeholder="Digite sua senha"/>
+                                <div className='mt-10'/>
+                                <LargeButton text="Cadastrar" bg/>
+                                <Separator/>
+                            </Form>
+                        )}
+                    </Formik>
+                </div>
             <div className='text-center text-sm'>
                 Já tem cadastro? <Link to="/login" className='text-primary' >Fazer Login</Link>
             </div>
