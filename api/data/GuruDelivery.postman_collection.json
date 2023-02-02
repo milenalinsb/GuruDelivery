@@ -114,7 +114,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"produto\": 1,\r\n    \"quantidade\": 3\r\n}",
+									"raw": "{\r\n    \"produto\": 1,\r\n    \"quantidade\": 2\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -227,7 +227,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/usuarios/6/enderecos",
+									"raw": "http://localhost:8080/usuarios/1/enderecos",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -235,7 +235,7 @@
 									"port": "8080",
 									"path": [
 										"usuarios",
-										"6",
+										"1",
 										"enderecos"
 									]
 								}
@@ -257,7 +257,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/usuarios/6/enderecos/adicionar",
+									"raw": "http://localhost:8080/usuarios/1/enderecos/adicionar",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -265,9 +265,44 @@
 									"port": "8080",
 									"path": [
 										"usuarios",
-										"6",
+										"1",
 										"enderecos",
 										"adicionar"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pedido",
+					"item": [
+						{
+							"name": "Realizando pedido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "1",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/empresas/1/pedidos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"empresas",
+										"1",
+										"pedidos"
 									]
 								}
 							},
