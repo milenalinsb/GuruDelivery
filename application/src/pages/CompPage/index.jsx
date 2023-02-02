@@ -7,7 +7,6 @@ import SearchBar from '../../components/SearchBar'
 import Separator from '../../components/Separator'
 import {useNavigate, useParams} from "react-router-dom";
 import {addProdutoCarrinho, getEmpresa, getProdutos} from "../../api/empresa";
-import Toast from "../../components/Toast";
 
 export default function CompPage() {
 
