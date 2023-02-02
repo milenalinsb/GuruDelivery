@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Counter from '../Counter'
 import Separator from '../Separator'
 
-export default function ProductCard({foto, nome, preco, descricao}) {
+export default function ProductCard({foto, nome, preco, descricao, onAction}) {
 
     const [counter, setCounter] = useState(0)
 
@@ -25,6 +25,7 @@ export default function ProductCard({foto, nome, preco, descricao}) {
                     <Counter value={counter} onChange={setCounter}/>
                     <button
                         className='text-on-primary bg-primary rounded-md px-2'
+                        onClick={() => {onAction (counter);setCounter(0)}}
                     >
                         Adicionar
                     </button>

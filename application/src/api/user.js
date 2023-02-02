@@ -12,7 +12,7 @@ export async function login(username, password){
         }
     })
     if(resp.data){
-        localStorage.setItem('user', resp.data)
+        localStorage.setItem('user', JSON.stringify(resp.data))
         localStorage.setItem('token', btoa(`${username}:${password}`))
     }
     return resp.data
