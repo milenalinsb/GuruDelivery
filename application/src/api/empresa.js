@@ -34,3 +34,11 @@ export async function deleteFromCarrinho(empresaId, itemId){
     const resp = await client.delete(`/usuarios/${userId}/${empresaId}/carrinho/${itemId}`)
     return resp.data
 }
+
+export async function postPedido(empresaId, enderecoId){
+    const data = {
+        enderecoId
+    }
+        const resp = await client.post(`/empresas/${empresaId}/pedidos`, data)
+    return resp.data
+}

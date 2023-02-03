@@ -17,3 +17,10 @@ export async function login(username, password){
     }
     return resp.data
 }
+
+export async function getEnderecos(){
+    const user = localStorage.getItem("user")
+    const userId = JSON.parse(user).id
+    const resp = await client.get(`/usuarios/${userId}/enderecos`)
+    return resp.data
+}
