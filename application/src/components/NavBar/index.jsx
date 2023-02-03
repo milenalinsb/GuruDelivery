@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom";
+import cartItem from "../CartItem";
 
 export default function NavBar({shopCart}) {
   return (
@@ -29,12 +30,14 @@ export default function NavBar({shopCart}) {
                   <a href="#" className="block py-2 pl-3 pr-4  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
                 </li>
                 <li>
-                  <a href="#" className="block py-2 pl-3 pr-4  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+                  <Link to="/meuspedidos">
+                    Meus Pedidos
+                  </Link>
                 </li>
                 <ul>
                   {shopCart?(
                       <li className="self-end w-6 text-on-primary">
-                        <Link to="carrinho">
+                        <Link to={`/empresas/${shopCart}/carrinho`}>
                           <img src="/assets/icons/shopping-cart.svg" alt="Carrinho" />
                         </Link>
                       </li>

@@ -35,6 +35,16 @@ export async function deleteFromCarrinho(empresaId, itemId){
     return resp.data
 }
 
+export async function changeQuantityCarrinho(empresaId, itemId, quantidade){
+    const user = localStorage.getItem("user")
+    const userId = JSON.parse(user).id
+    const data = {
+        quantidade
+    }
+    const resp = await client.patch(`/usuarios/${userId}/${empresaId}/carrinho/${itemId}/alterar`, data)
+    return resp.data
+}
+
 export async function postPedido(empresaId, enderecoId){
     const data = {
         enderecoId

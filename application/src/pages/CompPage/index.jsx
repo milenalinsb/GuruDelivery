@@ -38,13 +38,15 @@ export default function CompPage() {
   },[])
 
   async function addProdCarrinho(prod, quant){
-    const resp = await addProdutoCarrinho(prod.id, quant)
-    alert("Produto Adicionado com Sucesso")
+    if(quant > 0){
+      const resp = await addProdutoCarrinho(prod.id, quant)
+      alert("Produto Adicionado com Sucesso")
+    }
   }
 
   return (
       <>
-        <NavBar shopCart/>
+        <NavBar shopCart={empresa.id}/>
         <div className='flex flex-1 flex-col p-5 bg-background items-center justify-center' >
           <div className=' max-w-6xl w-full rounded-lg'>
             <header className='w-full flex text-on-primary'>

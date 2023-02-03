@@ -12,6 +12,7 @@ import 'flowbite';
 import SigninUserPage from './pages/SigninUserPage';
 import NewProdPage from './pages/NewProdPage';
 import CartPage from "./pages/CartPage";
+import MeusPedidosPage from "./pages/MeusPedidosPage";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "empresas/:empresaId/carrinho",
     element: <CartPage/>
+  },
+  {
+    path: "meuspedidos",
+    element: <MeusPedidosPage/>
   }
 ]);
 

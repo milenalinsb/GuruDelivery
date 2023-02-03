@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import NavBar from "../../components/NavBar";
 import HeaderCard from "../../components/HeaderCard";
-import {deleteFromCarrinho, getCarrinho, getEmpresa, postPedido} from "../../api/empresa";
+import {changeQuantityCarrinho, deleteFromCarrinho, getCarrinho, getEmpresa, postPedido} from "../../api/empresa";
 import {useNavigate, useParams} from "react-router-dom";
 import CartItem from "../../components/CartItem";
 import {getEnderecos} from "../../api/user";
@@ -12,7 +12,7 @@ function CartPage() {
     const [carrinho, setCarrinho] = useState([]);
     const [enderecos, setEnderecos] = useState([]);
     const [selectedEndereco, setSelectedEndereco] = useState(1);
-
+    const [totalPedido, setTotalPedido] = useState(0.00);
     const {empresaId} = useParams()
     const navigate = useNavigate()
 
@@ -50,6 +50,8 @@ function CartPage() {
         try {
             const carrinho = await getCarrinho(empresaId)
             setCarrinho(carrinho)
+            const total = carrinho.reduce((acc, value)=>acc+value.preco, 0)
+            setTotalPedido(total)
         }catch (err){
             if(err.response.status === 401){
                 navigate("/login")
@@ -72,9 +74,16 @@ function CartPage() {
         navigate(0)
     }
 
+    async function handleQuantityChange(item, quant){
+        if(item.quantidade > 1 || quant > 0 ){
+            const data = await changeQuantityCarrinho(empresa.id, item.produto.id, item.quantidade+quant)
+        }
+        updateCart()
+    }
+
     return (
         <>
-            <NavBar shopCart/>
+            <NavBar shopCart={`${empresa.id}`}/>
             <div className='flex flex-1 flex-col p-5 bg-background items-center justify-center' >
                 <div className=' max-w-6xl w-full rounded-lg'>
                     <header className='w-full flex text-on-primary'>
@@ -94,9 +103,14 @@ function CartPage() {
                                 foto={item.produto.foto}
                                 quantidade={item.quantidade}
                                 onAction={() => handleDelete(item)}
+                                total={"R$ "+item.preco.toFixed(2)}
+                                onChangeQuantity={(quant) => handleQuantityChange(item, quant)}
                             />
                         </div>
                     ))}
+                    <span className="self-end text-primary font-bold text-2xl">
+                        {"R$ " + totalPedido.toFixed(2)}
+                    </span>
                     <div>
                         {enderecos.map( end => (
                             <div key={end.id} className="flex bg-surface rounded shadow p-2 text-sm">
