@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 
 export default function NavBar({shopCart}) {
   return (
@@ -33,7 +34,9 @@ export default function NavBar({shopCart}) {
                 <ul>
                   {shopCart?(
                       <li className="self-end w-6 text-on-primary">
-                        <img src="/assets/icons/shopping-cart.svg" alt="Carrinho" />
+                        <Link to="carrinho">
+                          <img src="/assets/icons/shopping-cart.svg" alt="Carrinho" />
+                        </Link>
                       </li>
                   ):""}
                 </ul>

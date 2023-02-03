@@ -20,3 +20,17 @@ export async function addProdutoCarrinho(produtoId, quantidade){
     const resp = await client.post(`/usuarios/${userId}/carrinho/adicionar`, data)
     return resp.data
 }
+
+export async function getCarrinho(empresaId){
+    const user = localStorage.getItem("user")
+    const userId = JSON.parse(user).id
+    const resp = await client.get(`/usuarios/${userId}/${empresaId}/carrinho`)
+    return resp.data
+}
+
+export async function deleteFromCarrinho(empresaId, itemId){
+    const user = localStorage.getItem("user")
+    const userId = JSON.parse(user).id
+    const resp = await client.delete(`/usuarios/${userId}/${empresaId}/carrinho/${itemId}`)
+    return resp.data
+}

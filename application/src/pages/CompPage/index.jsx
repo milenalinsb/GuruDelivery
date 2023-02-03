@@ -38,7 +38,7 @@ export default function CompPage() {
   },[])
 
   async function addProdCarrinho(prod, quant){
-    const resp = await addProdutoCarrinho(empresa.id, prod.id, quant)
+    const resp = await addProdutoCarrinho(prod.id, quant)
     alert("Produto Adicionado com Sucesso")
   }
 
