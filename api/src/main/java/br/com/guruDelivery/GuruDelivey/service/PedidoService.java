@@ -20,6 +20,7 @@ import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -57,6 +58,11 @@ public class PedidoService {
         carrinhoRepository.deleteAllByIdInBatch(ids);
 
         return PedidoMapper.toResponse(pedido);
+    }
+
+    public List<PedidoResponse> listarPedidosByUsuario(Long userId){
+        var pedidoList = pedidoRepository.findAllByEnderecoUsuarioId(userId);
+        return pedidoList.stream().map(PedidoMapper::toResponse).collect(Collectors.toList());
     }
 
 }

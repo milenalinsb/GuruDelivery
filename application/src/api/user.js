@@ -24,3 +24,10 @@ export async function getEnderecos(){
     const resp = await client.get(`/usuarios/${userId}/enderecos`)
     return resp.data
 }
+
+export async function getUserPedidos(){
+    const user = localStorage.getItem("user")
+    const userId = JSON.parse(user).id
+    const resp = await client.get(`/usuarios/${userId}/pedidos`)
+    return resp.data
+}

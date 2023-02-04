@@ -19,6 +19,6 @@ public class ProdutoResponse {
     private String foto;
     private Float preco;
     private String descricao;
-    private Empresa empresa;
+    private EmpresaResponse empresa;
 
 }

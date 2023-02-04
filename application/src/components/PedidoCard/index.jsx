@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import CartItem from "../CartItem";
 
-function PedidoCard(props) {
+function PedidoCard({pedido}) {
 
     const [hidden, setHidden] = useState(true);
     const [arrow, setArrow] = useState(">");
@@ -21,20 +21,24 @@ function PedidoCard(props) {
                 <a className="cursor-pointer" onClick={handleHide}>
                 <div className="flex gap-2 items-center justify-between bg-surface shadow rounded-lg overflow-hidden">
                     <img className="w-36"
-                        src="https://diariodorio.com/wp-content/uploads/2020/07/daleopizzaria_20200710_144435_0.jpg" alt="Logo"/>
-                    <span>Empresa</span>
-                    <span>Endereco</span>
-                    <span>Status</span>
-                    <span>Total</span>
+                        src={pedido.empresa.fotoPerfil} alt="Logo"/>
+                    <span>{pedido.empresa.nome}</span>
+                    <span>{`${pedido.endereco.rua}, ${pedido.endereco.numero}`}</span>
+                    <span>{pedido.status}</span>
+                    <span>R$ {pedido.total.toFixed(2)}</span>
                     <span>{arrow}</span>
                 </div>
                 </a>
                 <div className="w-5/6 self-center" hidden={hidden}>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
-                    <CartItem/>
+                    {pedido.produtosPedido.map(cart => (
+                        <CartItem
+                            foto={cart.produto.foto}
+                            nome={cart.produto.nome}
+                            quantidade={cart.quantidade}
+                            total={'R$ ' + (cart.quantidade * cart.produto.preco).toFixed(2)}
+                        />
+
+                    ))}
                 </div>
             </div>
         </>

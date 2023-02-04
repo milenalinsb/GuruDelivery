@@ -10,18 +10,23 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/empresas/{empresaId}/pedidos")
+@RequestMapping()
 public class PedidoController {
 
     final PedidoService pedidoService;
 
-    @PostMapping
+    @PostMapping("/empresas/{empresaId}/pedidos")
     public ResponseEntity<PedidoResponse> criarPedido(@PathVariable Long empresaId, @RequestBody PedidoRequest request){
         var pedidoResponse = pedidoService.realizarPedido(request.getEnderecoId(), empresaId);
         return ResponseEntity.created(ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}").buildAndExpand(pedidoResponse.getId()).toUri())
                 .body(pedidoResponse);
 
+    }
+
+    @GetMapping("/usuarios/{userId}/pedidos")
+    public ResponseEntity<?> listarTodosPedidos(@PathVariable Long userId){
+        return ResponseEntity.ok(pedidoService.listarPedidosByUsuario(userId));
     }
 
 }

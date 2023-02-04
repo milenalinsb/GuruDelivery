@@ -52,3 +52,4 @@ export async function postPedido(empresaId, enderecoId){
         const resp = await client.post(`/empresas/${empresaId}/pedidos`, data)
     return resp.data
 }
+
