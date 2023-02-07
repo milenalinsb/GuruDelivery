@@ -4,11 +4,7 @@ import br.com.guruDelivery.GuruDelivey.domain.Empresa;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
-import static javax.persistence.GenerationType.IDENTITY;
 
 @Getter
 @Setter

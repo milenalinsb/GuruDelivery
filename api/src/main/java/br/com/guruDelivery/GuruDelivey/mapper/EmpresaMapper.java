@@ -3,11 +3,6 @@ package br.com.guruDelivery.GuruDelivey.mapper;
 import br.com.guruDelivery.GuruDelivey.controller.request.EmpresaRequest;
 import br.com.guruDelivery.GuruDelivey.controller.response.EmpresaResponse;
 import br.com.guruDelivery.GuruDelivey.domain.Empresa;
-import lombok.experimental.UtilityClass;
-
-import java.util.stream.Collectors;
-
-import static java.util.Objects.isNull;
 
 public class EmpresaMapper {
 

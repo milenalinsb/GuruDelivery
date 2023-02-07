@@ -78,6 +78,26 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "buscar empresa- dados para perfil",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/empresas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empresas",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -85,7 +105,213 @@
 			"name": "Usuario- Cliente",
 			"item": [
 				{
-					"name": "login [publico] Copy",
+					"name": "Carrinho",
+					"item": [
+						{
+							"name": "Adicionar produto ao carrinho",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"produto\": 1,\r\n    \"quantidade\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/usuarios/1/carrinho/adicionar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"usuarios",
+										"1",
+										"carrinho",
+										"adicionar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar produtos que um usuário colocou no carrinho de uma empresa",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/usuarios/1/1/carrinho",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"usuarios",
+										"1",
+										"1",
+										"carrinho"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "remover produto do carrinho",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/usuarios/1/1/carrinho/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"usuarios",
+										"1",
+										"1",
+										"carrinho",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "alterar quantidade de produtos no carrinho",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"quantidade\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/usuarios/1/1/carrinho/1/alterar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"usuarios",
+										"1",
+										"1",
+										"carrinho",
+										"1",
+										"alterar"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Endereco",
+					"item": [
+						{
+							"name": "listar endereços",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/usuarios/1/enderecos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"usuarios",
+										"1",
+										"enderecos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "criar endereco",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cep\": \"58900000\",\r\n    \"cidade\": \"Cajazeiras\",\r\n    \"bairro\": \"Por do sol\",\r\n    \"rua\": \"João Oliveira\",\r\n    \"numero\": 290,\r\n    \"complemento\": \"no final da rua\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/usuarios/1/enderecos/adicionar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"usuarios",
+										"1",
+										"enderecos",
+										"adicionar"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pedido",
+					"item": [
+						{
+							"name": "Realizando pedido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "1",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/empresas/1/pedidos",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"empresas",
+										"1",
+										"pedidos"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "login [publico]",
 					"event": [
 						{
 							"listen": "test",
