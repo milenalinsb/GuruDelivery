@@ -1,5 +1,10 @@
 import client from "./client";
 
+export async function postEmpresa(empresa){
+    const resp = await client.post("/empresas", empresa)
+    return resp.data
+}
+
 export async function getEmpresa(id){
     const resp = client.get("/empresas/"+id)
     return (await resp).data

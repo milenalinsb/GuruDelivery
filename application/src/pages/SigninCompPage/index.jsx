@@ -1,13 +1,39 @@
 import { Field, Form, Formik } from 'formik'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { postEmpresa } from '../../api/empresa'
 import InputText from '../../components/InputText'
 import LargeButton from '../../components/LargeButton'
 import Separator from '../../components/Separator'
 
 export default function SigninCompPage() {
 
-    function onSubmit(values){
-        alert(JSON.stringify(values))
+    const navigate = useNavigate();
+
+    async function onSubmit(values, helpers){
+        const reqData = {
+            nome: values.nome,
+            cnpj: values.CNPJ,
+            email: values.email,
+            senha: values.senha,
+            fotoPerfil: values.foto,
+            telefone: values.tel,
+            cep: values.cep,
+            cidade: values.cidade,
+            bairro: values.bairro,
+            rua: values.rua,
+            numero: values.num,
+            complemento: values.complemento,
+
+        }
+        try{
+            const data = await postEmpresa(reqData)
+            helpers.resetForm()
+            alert("Cadastrado com sucesso")
+            navigate("/login")
+        }catch(err){
+            console.dir(err)
+        }
     }
 
     const initialValues= {
@@ -22,7 +48,8 @@ export default function SigninCompPage() {
         bairro:'',
         cidade:'',
         estado:'',
-        complemento:''
+        complemento:'',
+        senha: ''
     }
 
   return (
@@ -55,6 +82,9 @@ export default function SigninCompPage() {
                             <div className='flex gap-3'>
                                 <Field className='basis-1/3' as={InputText} name='tel' type='text' placeholder='Digite o telefone'/>
                                 <Field as={InputText} className='basis-2/3' name='email' type='email' placeholder='Digite o e-mail'/>
+                            </div>
+                            <div className='flex gap-3'>
+                                <Field as={InputText} name='senha' type='password' placeholder='Digite a senha'/>
                             </div>
                             <div className='flex gap-3'>
                                 <Field as={InputText} name='rua' type='text' placeholder='Digite o nome da rua'/>
