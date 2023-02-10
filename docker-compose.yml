@@ -11,8 +11,8 @@ services:
       - db
     environment:
       - spring.datasource.url=jdbc:postgresql://db:5432/GuruDelivery
-      - spring.datasource.url.username=postgres
-      - spring.datasource.url.password=1234
+      - spring.datasource.username=postgres
+      - spring.datasource.password=1234
     ports:
       - "8080:8080"
   db:

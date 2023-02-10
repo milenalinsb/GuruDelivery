@@ -3,6 +3,8 @@ package br.com.guruDelivery.GuruDelivey.security.mapper;
 import br.com.guruDelivery.GuruDelivey.controller.request.ProdutoRequest;
 import br.com.guruDelivery.GuruDelivey.controller.response.ProdutoResponse;
 import br.com.guruDelivery.GuruDelivey.domain.Produto;
+import br.com.guruDelivery.GuruDelivey.mapper.EmpresaMapper;
+
 public class ProdutoMapper {
 
     public static Produto toEntity(ProdutoRequest request) {
@@ -22,7 +24,7 @@ public class ProdutoMapper {
         response.setFoto(entity.getFoto());
         response.setPreco(entity.getPreco());
         response.setDescricao(entity.getDescricao());
-        response.setEmpresa(entity.getEmpresa());
+        response.setEmpresa(EmpresaMapper.toResponse(entity.getEmpresa()));
         return response;
     }
 
