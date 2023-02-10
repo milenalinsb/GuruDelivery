@@ -1,10 +1,12 @@
 package br.com.guruDelivery.GuruDelivey.security.config;
 
+import br.com.guruDelivery.GuruDelivey.domain.Empresa;
 import br.com.guruDelivery.GuruDelivey.security.domain.Usuario;
 import lombok.Getter;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,5 +37,19 @@ public class UsuarioSecurity implements UserDetails {
         this.authorities = usuario.getPermissoes().stream()
                 .map(permissao -> new SimpleGrantedAuthority(permissao.getFuncao().getRole()))
                 .collect(Collectors.toList());
+    }
+
+    public UsuarioSecurity(Empresa empresa) {
+
+        this.id = empresa.getId();
+        this.username = empresa.getEmail();
+        this.password = empresa.getSenha();
+
+        this.accountNonExpired = true;
+        this.accountNonLocked = true;
+        this.credentialsNonExpired = true;
+        this.enabled = true;
+        this.authorities = new ArrayList<>();
+        this.authorities.add(new SimpleGrantedAuthority("ROLE_EMPRESA"));
     }
 }

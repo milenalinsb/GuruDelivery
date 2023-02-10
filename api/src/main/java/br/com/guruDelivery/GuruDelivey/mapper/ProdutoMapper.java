@@ -12,7 +12,7 @@ public class ProdutoMapper {
                 .foto(entity.getFoto())
                 .preco(entity.getPreco())
                 .descricao(entity.getDescricao())
-                .empresa(entity.getEmpresa())
+                .empresa(EmpresaMapper.toResponse(entity.getEmpresa()))
                 .build();
     }
 

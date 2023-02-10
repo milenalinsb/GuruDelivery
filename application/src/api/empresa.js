@@ -1,5 +1,10 @@
 import client from "./client";
 
+export async function postEmpresa(empresa){
+    const resp = await client.post("/empresas", empresa)
+    return resp.data
+}
+
 export async function getEmpresa(id){
     const resp = client.get("/empresas/"+id)
     return (await resp).data
@@ -7,6 +12,13 @@ export async function getEmpresa(id){
 
 export async function getProdutos(empresaId){
     const resp = client.get(`/empresas/${empresaId}/produtos`)
+    return (await resp).data
+}
+
+export async function getProdutosLogged(){
+    const user = localStorage.getItem("user")
+    const userId = JSON.parse(user).id
+    const resp = client.get(`/empresas/${userId}/produtos`)
     return (await resp).data
 }
 
@@ -35,6 +47,16 @@ export async function deleteFromCarrinho(empresaId, itemId){
     return resp.data
 }
 
+export async function changeQuantityCarrinho(empresaId, itemId, quantidade){
+    const user = localStorage.getItem("user")
+    const userId = JSON.parse(user).id
+    const data = {
+        quantidade
+    }
+    const resp = await client.patch(`/usuarios/${userId}/${empresaId}/carrinho/${itemId}/alterar`, data)
+    return resp.data
+}
+
 export async function postPedido(empresaId, enderecoId){
     const data = {
         enderecoId
@@ -42,3 +64,4 @@ export async function postPedido(empresaId, enderecoId){
         const resp = await client.post(`/empresas/${empresaId}/pedidos`, data)
     return resp.data
 }
+

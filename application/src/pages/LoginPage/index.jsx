@@ -1,22 +1,26 @@
 import { Field, Form, Formik } from 'formik'
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import InputText from '../../components/InputText'
 import LargeButton from '../../components/LargeButton'
 import Separator from '../../components/Separator'
 import {login} from "../../api/user";
 import ErrorMessage from "../../components/ErrorMessage";
+import AuthContext from '../../context/AuthContext'
 
 export default function LoginPage() {
   const navigate = useNavigate()
   const [loginError, setLoginError] = useState("");
+  const auth = useContext(AuthContext)
 
   async function onSubmit(values){
     try{
       const user = await login(values.email, values.password)
       setLoginError("")
+      auth.user = user
       navigate("/empresas/1")
     }catch (err){
+      console.dir(err)
       if(err.response.status === 401){
         setLoginError("Usuário ou Senha incorretos")
       }

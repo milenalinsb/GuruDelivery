@@ -1,5 +1,6 @@
 package br.com.guruDelivery.GuruDelivey.service;
 
+import br.com.guruDelivery.GuruDelivey.controller.request.AlterarStatusPedidoRequest;
 import br.com.guruDelivery.GuruDelivey.controller.response.PedidoResponse;
 import br.com.guruDelivery.GuruDelivey.domain.Carrinho;
 import br.com.guruDelivery.GuruDelivey.domain.Pedido;
@@ -20,6 +21,7 @@ import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -59,4 +61,24 @@ public class PedidoService {
         return PedidoMapper.toResponse(pedido);
     }
 
+    public List<PedidoResponse> listarPedidosByUsuario(Long userId){
+        var pedidoList = pedidoRepository.findAllByEnderecoUsuarioId(userId);
+        return pedidoList.stream().map(PedidoMapper::toResponse).collect(Collectors.toList());
+    }
+
+    public List<PedidoResponse> listarPedidosByEmpresa(Long empresaId){
+        var pedidoList = pedidoRepository.findAllByEmpresaId(empresaId);
+        return pedidoList.stream().map(PedidoMapper::toResponse).collect(Collectors.toList());
+    }
+
+    public PedidoResponse detalharPedido(Long pedidoId) {
+        Pedido pedido = pedidoRepository.findById(pedidoId).orElseThrow(()->new EntityNotFoundException("Pedido não encontrado"));
+        return PedidoMapper.toResponse(pedido);
+    }
+
+    public void alterarStatus(Long pedidoId, AlterarStatusPedidoRequest request) {
+        Pedido pedido = pedidoRepository.findById(pedidoId).orElseThrow(()->new EntityNotFoundException("Pedido não encontrado"));
+        Status status = Status.valueOf(request.getStatus());
+        pedido.setStatus(status);
+    }
 }

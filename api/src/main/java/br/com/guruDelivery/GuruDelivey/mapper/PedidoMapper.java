@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 
 public class PedidoMapper {
 
-
     public static PedidoResponse toResponse(Pedido entity) {
         var pedidoResponse = new PedidoResponse();
         BeanUtils.copyProperties(entity, pedidoResponse);
@@ -30,6 +29,7 @@ public class PedidoMapper {
             return totalProduto;
         }).reduce((float) 0, (subtotal, totalProduto) -> subtotal + totalProduto);
         pedidoResponse.setTotal(total);
+        pedidoResponse.setStatus(entity.getStatus().getDescricao());
         return pedidoResponse;
     }
 
