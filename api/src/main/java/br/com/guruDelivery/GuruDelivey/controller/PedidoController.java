@@ -29,4 +29,9 @@ public class PedidoController {
         return ResponseEntity.ok(pedidoService.listarPedidosByUsuario(userId));
     }
 
+    @GetMapping("/empresas/{empresaId}/pedidos")
+    public ResponseEntity<?> listarPedidosEmpresa(@PathVariable Long empresaId){
+        return ResponseEntity.ok(pedidoService.listarPedidosByEmpresa(empresaId));
+    }
+
 }

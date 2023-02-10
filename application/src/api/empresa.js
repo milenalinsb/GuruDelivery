@@ -15,6 +15,13 @@ export async function getProdutos(empresaId){
     return (await resp).data
 }
 
+export async function getProdutosLogged(){
+    const user = localStorage.getItem("user")
+    const userId = JSON.parse(user).id
+    const resp = client.get(`/empresas/${userId}/produtos`)
+    return (await resp).data
+}
+
 export async function addProdutoCarrinho(produtoId, quantidade){
     const data= {
         produto: produtoId,

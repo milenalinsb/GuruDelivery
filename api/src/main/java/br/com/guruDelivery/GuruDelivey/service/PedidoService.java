@@ -65,4 +65,9 @@ public class PedidoService {
         return pedidoList.stream().map(PedidoMapper::toResponse).collect(Collectors.toList());
     }
 
+    public List<PedidoResponse> listarPedidosByEmpresa(Long empresaId){
+        var pedidoList = pedidoRepository.findAllByEmpresaId(empresaId);
+        return pedidoList.stream().map(PedidoMapper::toResponse).collect(Collectors.toList());
+    }
+
 }
