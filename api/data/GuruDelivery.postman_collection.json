@@ -307,6 +307,86 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "alterar status do pedido",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "malu@gmail.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"A_CAMINHO\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pedidos/1/alterar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pedidos",
+										"1",
+										"alterar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "detalhar pedido",
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "malu@gmail.com",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/pedidos/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pedidos",
+										"1"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},

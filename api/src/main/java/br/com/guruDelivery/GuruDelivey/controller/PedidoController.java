@@ -1,5 +1,7 @@
 package br.com.guruDelivery.GuruDelivey.controller;
 
+import br.com.guruDelivery.GuruDelivey.controller.request.AlterarProdutoRequest;
+import br.com.guruDelivery.GuruDelivey.controller.request.AlterarStatusPedidoRequest;
 import br.com.guruDelivery.GuruDelivey.controller.request.PedidoRequest;
 import br.com.guruDelivery.GuruDelivey.controller.response.PedidoResponse;
 import br.com.guruDelivery.GuruDelivey.service.PedidoService;
@@ -7,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import static org.springframework.http.HttpStatus.OK;
 
 @RestController
 @RequiredArgsConstructor
@@ -34,4 +38,14 @@ public class PedidoController {
         return ResponseEntity.ok(pedidoService.listarPedidosByEmpresa(empresaId));
     }
 
+    @GetMapping("/pedidos/{pedidoId}")
+    public PedidoResponse retornarPedido(@PathVariable Long pedidoId){
+        return pedidoService.detalharPedido(pedidoId);
+    }
+
+    @PatchMapping("pedidos/{pedidoId}/alterar")
+    @ResponseStatus(OK)
+    public void alterarStatusPedido(@PathVariable Long pedidoId, @RequestBody AlterarStatusPedidoRequest request) {
+        pedidoService.alterarStatus(pedidoId, request);
+    }
 }

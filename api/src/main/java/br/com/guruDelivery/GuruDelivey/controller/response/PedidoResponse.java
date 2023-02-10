@@ -15,7 +15,7 @@ public class PedidoResponse {
     private EmpresaResponse empresa;
     private UsuarioResponse usuario;
     private EnderecoResponse endereco;
-    private Status status;
+    private String status;
     private List<ProdutoPedidoResponse> produtosPedido;
     private Float total;
 

@@ -1,5 +1,6 @@
 package br.com.guruDelivery.GuruDelivey.service;
 
+import br.com.guruDelivery.GuruDelivey.controller.request.AlterarStatusPedidoRequest;
 import br.com.guruDelivery.GuruDelivey.controller.response.PedidoResponse;
 import br.com.guruDelivery.GuruDelivey.domain.Carrinho;
 import br.com.guruDelivery.GuruDelivey.domain.Pedido;
@@ -70,4 +71,14 @@ public class PedidoService {
         return pedidoList.stream().map(PedidoMapper::toResponse).collect(Collectors.toList());
     }
 
+    public PedidoResponse detalharPedido(Long pedidoId) {
+        Pedido pedido = pedidoRepository.findById(pedidoId).orElseThrow(()->new EntityNotFoundException("Pedido não encontrado"));
+        return PedidoMapper.toResponse(pedido);
+    }
+
+    public void alterarStatus(Long pedidoId, AlterarStatusPedidoRequest request) {
+        Pedido pedido = pedidoRepository.findById(pedidoId).orElseThrow(()->new EntityNotFoundException("Pedido não encontrado"));
+        Status status = Status.valueOf(request.getStatus());
+        pedido.setStatus(status);
+    }
 }
