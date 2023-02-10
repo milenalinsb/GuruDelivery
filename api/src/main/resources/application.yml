@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/GuruDelivery
-    username: postgres
-    password: 1234
+    username: admin
+    password: 123mudar
   jpa:
     hibernate:
       ddl-auto: validate
