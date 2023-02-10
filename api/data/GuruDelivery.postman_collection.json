@@ -10,6 +10,49 @@
 			"name": "Empresas",
 			"item": [
 				{
+					"name": "cadastrar empresa",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "malu@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"McDonalds\",\r\n    \"cnpj\": 112345643,\r\n    \"email\": \"mcdonalds@gmail.com\",\r\n    \"senha\": \"1234\",\r\n    \"fotoPerfil\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/McDonald%27s_Golden_Arches.svg/1200px-McDonald%27s_Golden_Arches.svg.png\",\r\n    \"telefone\": \"35328543\",\r\n    \"cep\": \"58940-000\",\r\n    \"cidade\": \"Cajazeiras\",\r\n    \"bairro\": \"Bela Vista\",\r\n    \"rua\": \"Maria Fátima dos Santos\",\r\n    \"numero\": 324\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/empresas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empresas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "listar empresas",
 					"request": {
 						"auth": {

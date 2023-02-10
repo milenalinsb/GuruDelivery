@@ -42,7 +42,6 @@ public class EmpresaRequest {
     @NotBlank
     private Integer numero;
 
-    @NotBlank
     private String complemento;
 
 }

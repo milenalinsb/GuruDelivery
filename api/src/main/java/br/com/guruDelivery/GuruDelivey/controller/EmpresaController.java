@@ -20,19 +20,21 @@ import java.util.List;
 public class EmpresaController {
 
     @Autowired
-    private IncluirEmpresaService service;
-    private final BuscarEmpresaService buscarEmpresaService;
+    private IncluirEmpresaService incluirEmpresaServiceservice;
 
-    @PostMapping
-    public EmpresaResponse incluir(@RequestBody EmpresaRequest request) {
-        return service.incluir(request);
-    }
+    @Autowired
+    private BuscarEmpresaService buscarEmpresaService;
 
     @Autowired
     private ListarEmpresasService listarEmpresasService;
 
     @Autowired
     private ListarProdutoEmpresaService listarProdutoEmpresaService;
+
+    @PostMapping
+    public EmpresaResponse incluir(@RequestBody EmpresaRequest request) {
+        return incluirEmpresaServiceservice.incluir(request);
+    }
 
     @GetMapping
     public List<EmpresaResponse> listar() {
