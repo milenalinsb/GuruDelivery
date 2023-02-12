@@ -32,7 +32,7 @@ public class SecurityConfig {
                     .authorizeRequests()
                         .antMatchers("/*/**/publico").permitAll()
                         .antMatchers(POST, "/usuarios").permitAll()
-                        .antMatchers(GET, "/livros").permitAll()
+                        .antMatchers(POST, "/empresas").permitAll()
 
                 .and()
                     .authorizeRequests()

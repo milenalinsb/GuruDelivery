@@ -7,4 +7,5 @@ RUN ["mvn", "install", "-Dmaven.test.skip"]
 
 FROM openjdk:latest
 COPY --from=build '/app/target/GuruDelivey-0.0.1-SNAPSHOT.jar' '/app/GuruDelivey.jar'
+RUN ["mkdir", "/app/uploads"]
 ENTRYPOINT [ "java", "-jar", "/app/GuruDelivey.jar" ]

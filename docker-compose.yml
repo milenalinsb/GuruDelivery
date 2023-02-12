@@ -13,6 +13,7 @@ services:
       - spring.datasource.url=jdbc:postgresql://db:5432/GuruDelivery
       - spring.datasource.username=postgres
       - spring.datasource.password=1234
+      - upload.path=/app/uploads
     ports:
       - "8080:8080"
   db:

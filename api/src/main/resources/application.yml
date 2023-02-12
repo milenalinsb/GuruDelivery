@@ -1,11 +1,14 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/GuruDelivery
-    username: admin
-    password: 123mudar
+    username: postgres
+    password: 1234
   jpa:
     hibernate:
       ddl-auto: validate
+  config:
+    import: upload-config.yml
+
 server:
   error:
     include-message: always

@@ -7,6 +7,7 @@ import SearchBar from '../../components/SearchBar'
 import Separator from '../../components/Separator'
 import {useNavigate, useParams} from "react-router-dom";
 import {addProdutoCarrinho, getEmpresa, getProdutos} from "../../api/empresa";
+import client from '../../api/client'
 
 export default function CompPage() {
 
@@ -50,12 +51,14 @@ export default function CompPage() {
         <div className='flex flex-1 flex-col p-5 bg-background items-center justify-center' >
           <div className=' max-w-6xl w-full rounded-lg'>
             <header className='w-full flex text-on-primary'>
+              {!!empresa.id&&
               <HeaderCard
                   email={empresa.email}
                   nome={empresa.nome}
                   telefone={empresa.telefone}
-                  foto={empresa.fotoPerfil}
+                  foto={empresa.fotoPerfil.includes("http")?empresa.fotoPerfil:`${client.defaults.baseURL}/uploads/${empresa.fotoPerfil}`}
               />
+            }
             </header>
             <div className='mt-2'>
               <SearchBar placeholder="Procure um produto" buttonText="Procurar"/>

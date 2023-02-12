@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from 'formik'
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { postEmpresa } from '../../api/empresa'
 import InputText from '../../components/InputText'
@@ -9,6 +9,7 @@ import Separator from '../../components/Separator'
 export default function SigninCompPage() {
 
     const navigate = useNavigate();
+    const [file, setFile] = useState({})
 
     async function onSubmit(values, helpers){
         const reqData = {
@@ -26,9 +27,23 @@ export default function SigninCompPage() {
             complemento: values.complemento,
 
         }
+        const formData = new FormData()
+        formData.append('nome', reqData.nome)
+        formData.append('cnpj', reqData.cnpj)
+        formData.append('email', reqData.email)
+        formData.append('senha', reqData.senha)
+        formData.append('telefone', reqData.telefone)
+        formData.append('cep', reqData.cep)
+        formData.append('cidade', reqData.cidade)
+        formData.append('bairro', reqData.bairro)
+        formData.append('rua', reqData.rua)
+        formData.append('numero', reqData.numero)
+        formData.append('complemento', reqData.complemento)
+        formData.append('fotoPerfil', file)
+        console.dir(file)
         try{
-            const data = await postEmpresa(reqData)
-            helpers.resetForm()
+            const data = await postEmpresa(formData)
+            //helpers.resetForm()
             alert("Cadastrado com sucesso")
             navigate("/login")
         }catch(err){
@@ -71,10 +86,12 @@ export default function SigninCompPage() {
                     onSubmit={onSubmit}
                 >
                     {({
-                        
+                        setFieldValue, values
                     })=>(
                         <Form className='flex flex-col flex-1 gap-5'>
-                            <Field type='file' className='basis-1/2' name='foto'/>
+                            <input type='file' className='basis-1/2' name='foto' onChange={(event) => {
+                                setFile(event.currentTarget.files[0])}}
+                            />
                             <div className='flex gap-3'>
                                 <Field className='basis-1/3' as={InputText} name='CNPJ' type="text" placeholder='Digite o CNPJ'/>
                                 <Field className='basis-2/3' as={InputText} name='nome' type="text" placeholder='Digite o nome'/>

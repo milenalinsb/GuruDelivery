@@ -1,7 +1,10 @@
 import client from "./client";
 
-export async function postEmpresa(empresa){
-    const resp = await client.post("/empresas", empresa)
+export async function postEmpresa(formData){
+    const config = {    
+        headers: { 'content-type': 'multipart/form-data' }
+      }
+    const resp = await client.post("/empresas", formData, config)
     return resp.data
 }
 
