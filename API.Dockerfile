@@ -3,6 +3,7 @@ ADD 'api/pom.xml' '/app/'
 WORKDIR '/app'
 RUN ["mvn","dependency:go-offline"]
 ADD './api/src/' '/app/src'
+RUN ["touch", "/app/src/main/resources/upload-config.yml"]
 RUN ["mvn", "install", "-Dmaven.test.skip"]
 
 FROM openjdk:latest
