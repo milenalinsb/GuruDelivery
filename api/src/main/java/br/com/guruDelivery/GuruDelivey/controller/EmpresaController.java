@@ -2,10 +2,11 @@ package br.com.guruDelivery.GuruDelivey.controller;
 
 import br.com.guruDelivery.GuruDelivey.controller.request.EmpresaRequest;
 import br.com.guruDelivery.GuruDelivey.controller.request.NovaEmpresaRequest;
+import br.com.guruDelivery.GuruDelivey.controller.request.ProdutoRequest;
 import br.com.guruDelivery.GuruDelivey.controller.response.EmpresaResponse;
 import br.com.guruDelivery.GuruDelivey.controller.response.ProdutoResponse;
-import br.com.guruDelivery.GuruDelivey.mapper.EmpresaMapper;
 import br.com.guruDelivery.GuruDelivey.security.service.IncluirEmpresaService;
+import br.com.guruDelivery.GuruDelivey.service.IncluirProdutoService;
 import br.com.guruDelivery.GuruDelivey.service.BuscarEmpresaService;
 import br.com.guruDelivery.GuruDelivey.service.FileUploadService;
 import br.com.guruDelivery.GuruDelivey.service.ListarEmpresasService;
@@ -23,7 +24,7 @@ import java.util.List;
 public class EmpresaController {
 
     @Autowired
-    private IncluirEmpresaService incluirEmpresaServiceservice;
+    private IncluirEmpresaService incluirEmpresaService;
 
     @Autowired
     private BuscarEmpresaService buscarEmpresaService;
@@ -33,6 +34,10 @@ public class EmpresaController {
 
     @Autowired
     private ListarProdutoEmpresaService listarProdutoEmpresaService;
+
+    @Autowired
+    private IncluirProdutoService incluirProdutoService;
+
     private final FileUploadService fileUploadService;
 
     @PostMapping
@@ -41,7 +46,7 @@ public class EmpresaController {
         var empresaRequest = new EmpresaRequest();
         BeanUtils.copyProperties(novaEmpresaRequest, empresaRequest);
         empresaRequest.setFotoPerfil(filename);
-        return incluirEmpresaServiceservice.incluir(empresaRequest);
+        return incluirEmpresaService.incluir(empresaRequest);
     }
 
     @GetMapping
@@ -57,5 +62,10 @@ public class EmpresaController {
     @GetMapping("/{empresaId}")
     public EmpresaResponse buscarEmpresa(@PathVariable Long empresaId) {
         return buscarEmpresaService.buscar(empresaId);
+    }
+
+    @PostMapping("/{empresaId}")
+    public ProdutoResponse incluir(@PathVariable Long empresaId, @RequestBody ProdutoRequest request) {
+        return incluirProdutoService.incluir(empresaId, request);
     }
 }

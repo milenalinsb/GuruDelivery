@@ -22,7 +22,4 @@ public class ProdutoRequest {
     @NotBlank
     private String descricao;
 
-    @NotBlank
-    private Empresa empresa;
-
 }
