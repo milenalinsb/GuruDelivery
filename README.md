@@ -13,11 +13,36 @@ Projeto desenvolvido como requisito final para disciplina de Desenvolvimento de 
 ### 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
+- [Java](https://www.java.com/pt-BR/)
+- [Spring](https://spring.io/)
+- [Javascript](https://www.javascript.com/)
+- [React](https://pt-br.reactjs.org/)
 
+### :arrow_forward:  Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Node.js](https://nodejs.org/en/). ou [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable) 
+
+Além disto é bom ter um editor para trabalhar com o código como [IntelliJ IDEA](https://www.jetbrains.com/idea/) e o [VSCode](https://code.visualstudio.com/)
 
 ### :arrow_forward: Como Executar o projeto
 Clone o projeto e
 Baixe as dependências do projeto
+
+### 🎲 Rodando o Back End (servidor)
+
+```bash
+# Clone este repositório
+$ git clone https://github.com/milenalinsb/GuruDelivery.git
+
+# Configure o banco GuruDelivery no PostgresSQL
+     POSTGRES_USER: postgres
+     POSTGRES_PASSWORD: "1234"
+     POSTGRES_DB: 'GuruDelivery'
+
+# Rodar o comando 
+$ mvn clean install
+
+```
 
 ## :octocat: Desenvolvedores 
 
