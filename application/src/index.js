@@ -40,7 +40,7 @@ const router = createBrowserRouter([
     element: <SigninCompPage/>
   },
   {
-    path: "empresas/:empresaId/novoProduto",
+    path: "meusprodutos/empresas/:empresaId/novoProduto",
     element: <NewProdPage/>
   },
   {

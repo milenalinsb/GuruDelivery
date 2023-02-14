@@ -4,20 +4,33 @@ import { useNavigate } from 'react-router-dom'
 import InputText from '../../components/InputText'
 import LargeButton from '../../components/LargeButton'
 import Separator from '../../components/Separator'
+import { postProduto } from '../../api/empresa'
 
 export default function NewProdPage() {
   const navigate = useNavigate();
-
-
-  function onSubmit(values, {resetForm}){
-    alert(JSON.stringify(values))
-  }
 
   const initial = {
     nome: "",
     foto: "",
     preco: "",
     descricao: ""
+  }
+
+  async function onSubmit(values, {resetForm}){
+    const produto = {
+            "nome": values.nome,
+            "foto": "",
+            "preco": values.preco,
+            "descricao": values.descricao
+    }
+    try{
+        const response = await postProduto(produto)
+        alert(response)
+        resetForm()
+        navigate("/meusprodutos")
+    }catch(error){
+        console.error(error)
+    }
   }
 
   return (
@@ -39,11 +52,7 @@ export default function NewProdPage() {
                 initialValues={initial}
                 onSubmit={onSubmit}
               >
-              {({
-                values,
-                errors,
-                handleChange
-              }) => (
+              {() => (
                 <Form className='flex flex-col'>
                   <Field name="foto" type="file"/>
                   <Field as={InputText} name="nome" type="text" placeholder="Digite o nome"/>

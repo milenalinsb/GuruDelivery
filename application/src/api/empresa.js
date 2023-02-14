@@ -68,6 +68,13 @@ export async function postPedido(empresaId, enderecoId){
     return resp.data
 }
 
+export async function postProduto(produto){
+    const user = localStorage.getItem("user")
+    const userId = JSON.parse(user).id
+    const resp = await client.post(`/empresas/${userId}`, produto)
+    return resp.data
+}
+
 export async function listAllEmpresas(){
     const resp = client.get("/empresas/")
     return (await resp).data

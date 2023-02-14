@@ -2,27 +2,25 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getProdutosLogged } from '../../api/empresa'
 import NavBar from '../../components/NavBar'
-import ProductCard from '../../components/ProductCard'
+import LargeButton from '../../components/LargeButton'
 
 export default function ListarProdutosPage() {
 
   const [produtos, setProdutos] = useState([])
   const navigate = useNavigate()
-
-    useEffect(()=>{
-        async function load(){
-          try{
-            const prods = await getProdutosLogged()
-            setProdutos(prods)
-          }catch (err){
-            if(err.response.status === 401){
-              navigate("/login")
-            }
+  useEffect(()=>{
+      async function load(){
+        try{
+          const prods = await getProdutosLogged()
+          setProdutos(prods)
+        }catch (err){
+          if(err.response.status === 401){
+            navigate("/login")
           }
         }
-        load()
-      },[])
-
+      }
+      load()
+    },[])
 
   return (
     <div>
@@ -67,6 +65,8 @@ export default function ListarProdutosPage() {
           )}
           </tbody>
       </table>
+      <LargeButton text="Adicionar novo produto" action={()=> navigate("empresas/"+produtos[0].empresa.id+"/novoProduto")}/>
+
   </div>
       </main>
   </div>
