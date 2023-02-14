@@ -68,3 +68,8 @@ export async function postPedido(empresaId, enderecoId){
     return resp.data
 }
 
+export async function listAllEmpresas(){
+    const resp = client.get("/empresas/")
+    return (await resp).data
+}
+

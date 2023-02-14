@@ -18,7 +18,7 @@ export default function LoginPage() {
       const user = await login(values.email, values.password)
       setLoginError("")
       auth.user = user
-      navigate("/empresas/1")
+      navigate("/home")
     }catch (err){
       console.dir(err)
       if(err.response.status === 401){

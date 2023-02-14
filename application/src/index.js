@@ -16,6 +16,7 @@ import MeusPedidosPage from "./pages/MeusPedidosPage";
 import SigninCompPage from './pages/SigninCompPage';
 import AuthContext from './context/AuthContext';
 import ListarProdutosPage from './pages/ListarProdutosPage';
+import HomePage from './pages/HomePage';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
   {
     path: "meusprodutos",
     element: <ListarProdutosPage/>
+  },
+  {
+    path:"home",
+    element: <HomePage/>
   }
 
 

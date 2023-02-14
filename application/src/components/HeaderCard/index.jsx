@@ -3,7 +3,7 @@ import React from 'react'
 export default function HeaderCard({nome, email, telefone, foto}) {
     return (
         <>
-            <a href="#" className="flex flex-col items-center bg-surface border border-gray-200 rounded-lg
+            <div href="#" className="flex flex-col items-center bg-surface border border-gray-200 rounded-lg
         shadow md:flex-row w-full hover:bg-gray-100 text-on-surface
          dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
@@ -13,7 +13,7 @@ export default function HeaderCard({nome, email, telefone, foto}) {
                     <p className="mb-3 font-normal ">email: {email}</p>
                     <p className="mb-3 font-normal ">telefone: {telefone}</p>
                 </div>
-            </a>
+            </div>
         </>
     )
 }
