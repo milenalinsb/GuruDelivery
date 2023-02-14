@@ -1,6 +1,6 @@
 import { Field, Form, Formik } from 'formik'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { postEmpresa } from '../../api/empresa'
 import InputText from '../../components/InputText'
 import LargeButton from '../../components/LargeButton'
@@ -122,7 +122,7 @@ export default function SigninCompPage() {
                 </Formik>
                 <Separator/>
                 <div className='text-center text-sm'>
-                    Já tem cadastro? <a className='text-primary' href='#'>Fazer Login</a>
+                    Já tem cadastro? <Link className='text-primary' to="/login">Fazer Login</Link>
                 </div>
             </div>
         </div>
