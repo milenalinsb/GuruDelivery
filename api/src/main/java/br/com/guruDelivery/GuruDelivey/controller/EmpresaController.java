@@ -2,9 +2,11 @@ package br.com.guruDelivery.GuruDelivey.controller;
 
 import br.com.guruDelivery.GuruDelivey.controller.request.EmpresaRequest;
 import br.com.guruDelivery.GuruDelivey.controller.request.NovaEmpresaRequest;
+import br.com.guruDelivery.GuruDelivey.controller.request.NovoProdutoRequest;
 import br.com.guruDelivery.GuruDelivey.controller.request.ProdutoRequest;
 import br.com.guruDelivery.GuruDelivey.controller.response.EmpresaResponse;
 import br.com.guruDelivery.GuruDelivey.controller.response.ProdutoResponse;
+import br.com.guruDelivery.GuruDelivey.domain.Produto;
 import br.com.guruDelivery.GuruDelivey.security.service.IncluirEmpresaService;
 import br.com.guruDelivery.GuruDelivey.service.IncluirProdutoService;
 import br.com.guruDelivery.GuruDelivey.service.BuscarEmpresaService;
@@ -65,7 +67,11 @@ public class EmpresaController {
     }
 
     @PostMapping("/{empresaId}")
-    public ProdutoResponse incluir(@PathVariable Long empresaId, @RequestBody ProdutoRequest request) {
+    public ProdutoResponse incluir(@PathVariable Long empresaId, @ModelAttribute NovoProdutoRequest novaEmpresaRequest) {
+        var filename = fileUploadService.saveFile(novaEmpresaRequest.getFoto());
+        var request = new ProdutoRequest();
+        BeanUtils.copyProperties(novaEmpresaRequest, request);
+        request.setFoto(filename);
         return incluirProdutoService.incluir(empresaId, request);
     }
 }

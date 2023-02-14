@@ -33,6 +33,7 @@ public class SecurityConfig {
                         .antMatchers("/*/**/publico").permitAll()
                         .antMatchers(POST, "/usuarios").permitAll()
                         .antMatchers(POST, "/empresas").permitAll()
+                        .antMatchers(GET, "/uploads/**").permitAll()
 
                 .and()
                     .authorizeRequests()

@@ -56,7 +56,7 @@ export default function CompPage() {
                   email={empresa.email}
                   nome={empresa.nome}
                   telefone={empresa.telefone}
-                  foto={empresa.fotoPerfil.includes("http")?empresa.fotoPerfil:`${client.defaults.baseURL}/uploads/${empresa.fotoPerfil}`}
+                  foto={empresa.fotoPerfil}
               />
             }
             </header>

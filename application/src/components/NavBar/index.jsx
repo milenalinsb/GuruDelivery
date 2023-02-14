@@ -39,10 +39,15 @@ export default function NavBar({shopCart}) {
                     </Link>
                   </li>
                   <li>
-                    <a href="#" className="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page">Listar Pedidos</a>
+                    <Link to="/listar-pedidos" className="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page">Listar Pedidos</Link>
                   </li>
                 </>
                 :null}
+                  <li>
+                    <Link to="/login">
+                      Sair
+                    </Link>
+                  </li>
                 
                 <ul>
                   {shopCart?(

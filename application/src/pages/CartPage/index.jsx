@@ -18,6 +18,7 @@ function CartPage() {
     const [totalPedido, setTotalPedido] = useState(0.00);
     const {empresaId} = useParams()
     const navigate = useNavigate()
+    const [hiddenEnd, setHiddenEnd] = useState(true)
 
     //Carregar Empresa
     useEffect(()=>{
@@ -39,14 +40,16 @@ function CartPage() {
         updateCart()
     },[])
 
+
+    async function loadEnderecos(){
+        const list = await getEnderecos()
+        setEnderecos(list)
+        console.dir(list)
+    }
+
     //Carregar Endereços
     useEffect(()=>{
-        async function load(){
-            const list = await getEnderecos()
-            setEnderecos(list)
-            console.dir(list)
-        }
-        load()
+        loadEnderecos()
     },[])
 
     async function updateCart(){
@@ -98,6 +101,7 @@ function CartPage() {
         try{
             const data = await postEndereco(endereco)
             resetForm()
+            loadEnderecos()
         }catch(error){
             console.error(error)
         }
@@ -159,11 +163,15 @@ function CartPage() {
                         ))}
                     </div>
                     <div>
+                        <div className='flex flex-col w-10 h-7'>
+                            <LargeButton text="+" action={() => setHiddenEnd(!hiddenEnd)} bg/>
+                        </div>
+                        <div hidden={hiddenEnd}>
                     <Formik
                         initialValues={initialEndereco}
                         onSubmit={adicionarEndereco}>
                         {()=>(
-                        <Form className='flex flex-col'>
+                        <Form className='flex flex-col' >
                             <Field as={InputText} name="cep" type="text" placeholder="Digite o CEP"/>
                             <Field as={InputText} name="cidade" type="text" placeholder="Cidade:"/>
                             <Field as={InputText} name="bairro" type="text" placeholder="Bairro:"/>
@@ -174,6 +182,7 @@ function CartPage() {
                         </Form>
                         )}
                     </Formik>
+                    </div>
                     </div>
                     <button
                         className="self-end bg-primary text-on-primary p-2 rounded my-2"

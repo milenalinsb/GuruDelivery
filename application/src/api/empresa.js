@@ -88,3 +88,10 @@ export async function listAllPedidos(){
     return resp.data
 }
 
+export async function enviarPedido(pedidoId){
+    const data ={
+        "status": "A_CAMINHO"
+    }
+    const resp = await client.patch(`/pedidos/${pedidoId}/alterar`, data)
+    return resp.data
+}

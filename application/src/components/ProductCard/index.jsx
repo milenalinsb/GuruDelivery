@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import client from '../../api/client'
 import Counter from '../Counter'
 import Separator from '../Separator'
 
@@ -9,7 +10,7 @@ export default function ProductCard({foto, nome, preco, descricao, onAction}) {
     return (
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
-                <img className="rounded-t-lg" src={foto} alt="" />
+                <img className="rounded-t-lg" src={foto.includes('http')?foto:`${client.defaults.baseURL}/uploads/${foto}`} alt="" />
             </a>
             <div className="p-5">
                 <a href="#">

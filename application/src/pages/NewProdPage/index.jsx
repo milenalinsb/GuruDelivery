@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Field, Form, Formik } from 'formik'
 import { useNavigate } from 'react-router-dom'
 import InputText from '../../components/InputText'
@@ -8,6 +8,8 @@ import { postProduto } from '../../api/empresa'
 
 export default function NewProdPage() {
   const navigate = useNavigate();
+  const [file, setFile] = useState({})
+
 
   const initial = {
     nome: "",
@@ -23,9 +25,13 @@ export default function NewProdPage() {
             "preco": values.preco,
             "descricao": values.descricao
     }
+    const formData = new FormData()
+        formData.append('nome', produto.nome)
+        formData.append('foto', file)
+        formData.append('preco', produto.preco)
+        formData.append('descricao', produto.descricao)
     try{
-        const response = await postProduto(produto)
-        alert(response)
+        const response = await postProduto(formData)
         resetForm()
         navigate("/meusprodutos")
     }catch(error){
@@ -54,7 +60,7 @@ export default function NewProdPage() {
               >
               {() => (
                 <Form className='flex flex-col'>
-                  <Field name="foto" type="file"/>
+                  <input name="foto" type="file" onChange={(event) => setFile(event.currentTarget.files[0])}/>
                   <Field as={InputText} name="nome" type="text" placeholder="Digite o nome"/>
                   <Field component='textarea' name="descricao" placeholder="Descrição"/>
                   <Field as={InputText} name="preco" type="number" placeholder="Preço"/>
