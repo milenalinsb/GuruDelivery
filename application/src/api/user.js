@@ -4,6 +4,12 @@ export async function postUser(user){
     return client.post("/usuarios", user)
 }
 
+export async function postEndereco(endereco){
+    const user = localStorage.getItem("user")
+    const userId = JSON.parse(user).id
+    return client.post(`/usuarios/${userId}/enderecos/adicionar`, endereco)
+}
+
 export async function login(username, password){
     const resp = await client.post("/login",{}, {
         auth:{

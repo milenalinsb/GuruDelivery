@@ -19,10 +19,6 @@ export default function HomePage() {
         loadAll()
     }, [])
     
-
-
-
-
   return (
     <>
         <NavBar/>
@@ -32,7 +28,7 @@ export default function HomePage() {
             
             </header>
             <div className='mt-2'>
-            <SearchBar placeholder="Procure um produto" buttonText="Procurar"/>
+            <SearchBar placeholder="Procure uma empresa" buttonText="Procurar"/>
             </div>
             <main className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-2 bg-background justify-center gap-2 mt-2'>
                 {empresas.map(empresa =>

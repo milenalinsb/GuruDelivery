@@ -4,7 +4,10 @@ import HeaderCard from "../../components/HeaderCard";
 import {changeQuantityCarrinho, deleteFromCarrinho, getCarrinho, getEmpresa, postPedido} from "../../api/empresa";
 import {useNavigate, useParams} from "react-router-dom";
 import CartItem from "../../components/CartItem";
-import {getEnderecos} from "../../api/user";
+import {getEnderecos, postEndereco} from "../../api/user";
+import { Field, Form, Formik } from 'formik';
+import InputText from '../../components/InputText';
+import LargeButton from '../../components/LargeButton';
 
 function CartPage() {
 
@@ -74,6 +77,33 @@ function CartPage() {
         navigate(0)
     }
 
+    const initialEndereco ={
+        cep: "", 
+        cidade: "", 
+        bairro: "",
+        rua: "",
+        numero: "",
+        complemento: ""
+    }
+    
+    async function adicionarEndereco(values, {resetForm}){
+        const endereco = {
+                "cep": values.cep,
+                "cidade": values.cidade,
+                "bairro": values.bairro,
+                "rua": values.rua,
+                "numero": values.numero,
+                "complemento": values.complemento
+        }
+        try{
+            const data = await postEndereco(endereco)
+            resetForm()
+        }catch(error){
+            console.error(error)
+        }
+    }
+
+
     async function handleQuantityChange(item, quant){
         if(item.quantidade > 1 || quant > 0 ){
             const data = await changeQuantityCarrinho(empresa.id, item.produto.id, item.quantidade+quant)
@@ -127,6 +157,23 @@ function CartPage() {
                                 </fieldset>
                             </div>
                         ))}
+                    </div>
+                    <div>
+                    <Formik
+                        initialValues={initialEndereco}
+                        onSubmit={adicionarEndereco}>
+                        {()=>(
+                        <Form className='flex flex-col'>
+                            <Field as={InputText} name="cep" type="text" placeholder="Digite o CEP"/>
+                            <Field as={InputText} name="cidade" type="text" placeholder="Cidade:"/>
+                            <Field as={InputText} name="bairro" type="text" placeholder="Bairro:"/>
+                            <Field as={InputText} name="rua" type="text" placeholder="Rua:"/>
+                            <Field as={InputText} name="numero" type="text" placeholder="Número:"/>
+                            <Field as={InputText} name="complemento" type="text" placeholder="Complemento:"/>
+                            <LargeButton text="Adicionar endereço" bg/>
+                        </Form>
+                        )}
+                    </Formik>
                     </div>
                     <button
                         className="self-end bg-primary text-on-primary p-2 rounded my-2"
