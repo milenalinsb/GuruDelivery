@@ -80,3 +80,11 @@ export async function listAllEmpresas(){
     return (await resp).data
 }
 
+export async function listAllPedidos(){
+    const user = localStorage.getItem("user")
+    const userId = JSON.parse(user).id
+    const resp = await client.get(`/empresas/${userId}/pedidos`)
+    console.log(JSON.stringify(resp))
+    return resp.data
+}
+
