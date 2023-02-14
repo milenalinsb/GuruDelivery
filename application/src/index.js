@@ -17,6 +17,7 @@ import SigninCompPage from './pages/SigninCompPage';
 import AuthContext from './context/AuthContext';
 import ListarProdutosPage from './pages/ListarProdutosPage';
 import HomePage from './pages/HomePage';
+import ListarPedidosPage from './pages/ListarPedidosPage';
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
   {
     path:"home",
     element: <HomePage/>
+  },
+  {
+    path:"listar-pedidos",
+    element: <ListarPedidosPage/>
   }
 
 

@@ -27,6 +27,15 @@ services:
       POSTGRES_DB: 'GuruDelivery'
     ports:
       - "5432:5432"
+  react:
+    build: 
+      dockerfile: React.Dockerfile
+      network: host
+    restart: always
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
 
 
 
