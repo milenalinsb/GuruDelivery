@@ -62,6 +62,8 @@ export default function LoginPage() {
             )}
             </Formik>
             <LargeButton text="Quero me Cadastrar" action={()=> navigate("/signin-usr")}/>
+            <LargeButton text="Quero cadastrar minha empresa" action={()=> navigate("/signin-comp")}/>
+
           </div>
 
         </div>
